@@ -8,10 +8,10 @@ export default function About() {
       {/* Title */}
       <div className="text-center max-w-3xl mx-auto mb-20">
         <div className="inline-block text-purple-600 text-xs font-semibold tracking-widest uppercase mb-2">
-          The Vortex Advantage
+          The Arthasya Advantage
         </div>
         <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-800">
-          About VortexFlow
+          About Arthasya
         </h2>
         <p className="text-slate-600 mt-4 text-sm md:text-base leading-relaxed font-light">
           Engineered for operational excellence. We bridge-build resources to support enterprise operations and engineering pipelines.
@@ -26,7 +26,7 @@ export default function About() {
             Engineered for Efficiency, Built for Global Scale.
           </h3>
           <p className="text-slate-600 leading-relaxed font-light text-sm">
-            Founded in 2021, VortexFlow bridge-builds technical talent resource gaps for high-growth silicon valley startups and multi-national enterprise entities. We don't just supply staffing; we consult, construct, and fully manage high-output technical nodes.
+            Founded in 2021, Arthasya bridge-builds technical talent resource gaps for high-growth silicon valley startups and multi-national enterprise entities. We don't just supply staffing; we consult, construct, and fully manage high-output technical nodes.
           </p>
           <p className="text-slate-600 leading-relaxed font-light text-sm">
             Our operational methodology focuses on frictionless tooling integration, standard overlap hours, and strict SOC2 & GDPR compliant environments. This ensures your remote staff feels like a natural branch of your in-office development crew.

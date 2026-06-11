@@ -63,7 +63,7 @@ export default function Contact({ onOpenModal }) {
                 <Mail className="w-4 h-4 text-amber-600 mt-0.5" />
                 <div>
                   <h4 className="text-[10px] font-bold text-slate-400 uppercase">Write Securely</h4>
-                  <p className="text-xs text-slate-700 mt-0.5 font-semibold">partner@vortexflow.co</p>
+                  <p className="text-xs text-slate-700 mt-0.5 font-semibold">partner@arthasya.co</p>
                 </div>
               </div>
             </div>

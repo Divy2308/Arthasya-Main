@@ -53,11 +53,8 @@ export default function Header({ onOpenModal }) {
                 <Activity className="w-4 h-4 text-purple-500" />
               </div>
             </div>
-            <span>
-              Vortex
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-amber-500 font-medium font-sans">
-                Flow
-              </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-amber-500 font-semibold font-sans">
+              Arthasya
             </span>
           </Link>
 

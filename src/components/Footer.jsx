@@ -12,14 +12,14 @@ export default function Footer() {
           className="flex items-center space-x-2 text-sm font-bold tracking-tight text-slate-800 font-display"
         >
           <Activity className="w-4 h-4 text-purple-500" />
-          <span>
-            Vortex<span className="text-slate-500 font-medium font-sans">Flow</span>
+          <span className="text-slate-700 font-semibold font-sans">
+            Arthasya
           </span>
         </Link>
 
         {/* Rights */}
         <div className="text-xs text-slate-400">
-          &copy; 2026 VortexFlow Operations Inc. All rights reserved.
+          &copy; 2026 Arthasya Operations Inc. All rights reserved.
         </div>
 
         {/* Socials */}
