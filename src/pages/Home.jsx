@@ -17,10 +17,12 @@ export default function Home() {
             alt="Arthasya Full Bleed Background"
             className="w-full h-full object-cover object-center"
           />
-          {/* Dark frosted glass overlay for high text contrast */}
-          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px]"></div>
-          {/* Subtle bottom fade to transition to the light page color */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-slate-950/20 to-slate-950/40"></div>
+          {/* Black Vignette Overlay (Clear center, dark corners) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.05)_20%,rgba(0,0,0,0.85)_100%)] pointer-events-none"></div>
+          {/* Subtle dark layout layer for text contrast */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
+          {/* Transition fade blending into the off-white page background */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-black/35 pointer-events-none"></div>
         </div>
 
         {/* Content Container (Layered on top of background) */}
