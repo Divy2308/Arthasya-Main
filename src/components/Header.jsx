@@ -17,16 +17,16 @@ export default function Header({ onOpenModal }) {
 
   const navLinkClass = (path) => {
     if (isActive(path)) {
-      return 'text-purple-600 font-semibold';
+      return 'text-purple-700 font-bold';
     }
-    return 'text-slate-800 hover:text-purple-600';
+    return 'text-black hover:text-purple-700 font-medium';
   };
 
   return (
     <header className="w-full flex justify-center px-4 md:px-0 relative z-50">
       <nav
         id="navbar"
-        className={`fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl custom-navbar-glass px-6 py-3.5 shadow-[0_10px_35px_-10px_rgba(15,23,42,0.12)] ${
+        className={`fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl custom-navbar-glass px-6 py-3.5 shadow-[0_10px_35px_-10px_rgba(15,23,42,0.15)] ${
           isMenuOpen
             ? 'navbar-expanded rounded-3xl'
             : 'navbar-collapsed rounded-full'
@@ -36,27 +36,27 @@ export default function Header({ onOpenModal }) {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-2 text-xl font-bold tracking-tight text-slate-900 font-display select-none transition-colors duration-300"
+            className="flex items-center space-x-2 text-xl font-extrabold tracking-tight text-black font-display select-none transition-colors duration-300"
           >
             <div className="relative w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-500 to-amber-400 flex items-center justify-center p-0.5 shadow-sm">
               <div className="w-full h-full bg-[#FAF9F6] rounded-[6px] flex items-center justify-center">
                 <Activity className="w-4 h-4 text-purple-500" />
               </div>
             </div>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-amber-500 font-semibold font-sans">
+            <span className="text-black font-bold font-sans">
               Arthasya
             </span>
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <div className="hidden md:flex items-center space-x-8 text-sm font-semibold">
             <Link
               to="/"
               className={`transition-all duration-300 relative py-1 ${navLinkClass('/')}`}
             >
               Home
               {isActive('/') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500 rounded-full animate-pulse"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-700 rounded-full"></span>
               )}
             </Link>
             <Link
@@ -65,7 +65,7 @@ export default function Header({ onOpenModal }) {
             >
               Services
               {isActive('/services') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500 rounded-full animate-pulse"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-700 rounded-full"></span>
               )}
             </Link>
             <Link
@@ -74,7 +74,7 @@ export default function Header({ onOpenModal }) {
             >
               About
               {isActive('/about') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500 rounded-full animate-pulse"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-700 rounded-full"></span>
               )}
             </Link>
             <Link
@@ -83,7 +83,7 @@ export default function Header({ onOpenModal }) {
             >
               Contact Us
               {isActive('/contact') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500 rounded-full animate-pulse"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-700 rounded-full"></span>
               )}
             </Link>
           </div>
@@ -92,7 +92,7 @@ export default function Header({ onOpenModal }) {
           <div className="hidden md:block">
             <button
               onClick={onOpenModal}
-              className="relative group overflow-hidden px-5 py-2 rounded-full text-xs font-semibold tracking-wide uppercase text-slate-800 bg-white/40 border border-slate-200 hover:border-purple-300 hover:shadow-[0_4px_15px_rgba(168,85,247,0.12)] transition-all duration-300"
+              className="relative group overflow-hidden px-5 py-2 rounded-full text-xs font-bold tracking-wide uppercase text-black bg-white/50 border border-slate-300 hover:border-purple-400 hover:shadow-[0_4px_15px_rgba(168,85,247,0.15)] transition-all duration-300"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 Talk to Expert{' '}
@@ -107,7 +107,7 @@ export default function Header({ onOpenModal }) {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-1.5 rounded-full focus:outline-none transition-all duration-200 text-slate-800 hover:text-slate-900 hover:bg-slate-100/50"
+              className="p-1.5 rounded-full focus:outline-none transition-all duration-200 text-black hover:bg-slate-900/5"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -116,42 +116,42 @@ export default function Header({ onOpenModal }) {
 
         {/* Mobile menu expanded container */}
         <div
-          className={`md:hidden flex flex-col space-y-4 pt-4 pb-2 text-sm font-medium transition-all duration-300 text-slate-700 ${
+          className={`md:hidden flex flex-col space-y-4 pt-4 pb-2 text-sm font-semibold transition-all duration-300 text-black ${
             isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
           <hr className="border-slate-200/50" />
           <Link
             to="/"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-600 ${
-              isActive('/') ? 'font-semibold pl-2 text-purple-600' : ''
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-700 ${
+              isActive('/') ? 'font-bold pl-2 text-purple-700' : ''
             }`}
           >
-            <Home className="w-4 h-4 text-purple-500" /> Home
+            <Home className="w-4 h-4 text-purple-700" /> Home
           </Link>
           <Link
             to="/services"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-600 ${
-              isActive('/services') ? 'font-semibold pl-2 text-purple-600' : ''
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-700 ${
+              isActive('/services') ? 'font-bold pl-2 text-purple-700' : ''
             }`}
           >
-            <Layers className="w-4 h-4 text-purple-500" /> Services
+            <Layers className="w-4 h-4 text-purple-700" /> Services
           </Link>
           <Link
             to="/about"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-600 ${
-              isActive('/about') ? 'font-semibold pl-2 text-purple-600' : ''
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-700 ${
+              isActive('/about') ? 'font-bold pl-2 text-purple-700' : ''
             }`}
           >
-            <User className="w-4 h-4 text-purple-500" /> About Us
+            <User className="w-4 h-4 text-purple-700" /> About Us
           </Link>
           <Link
             to="/contact"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-600 ${
-              isActive('/contact') ? 'font-semibold pl-2 text-purple-600' : ''
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-purple-700 ${
+              isActive('/contact') ? 'font-bold pl-2 text-purple-700' : ''
             }`}
           >
-            <Mail className="w-4 h-4 text-purple-500" /> Contact Us
+            <Mail className="w-4 h-4 text-purple-700" /> Contact Us
           </Link>
           <button
             onClick={onOpenModal}

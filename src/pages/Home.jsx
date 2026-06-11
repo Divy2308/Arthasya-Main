@@ -18,11 +18,9 @@ export default function Home() {
             className="w-full h-full object-cover object-center"
           />
           {/* Black Vignette Overlay (Clear center, dark corners) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.05)_20%,rgba(0,0,0,0.85)_100%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_25%,rgba(0,0,0,0.8)_100%)] pointer-events-none"></div>
           {/* Subtle dark layout layer for text contrast */}
-          <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
-          {/* Transition fade blending into the off-white page background */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-black/35 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-black/15 pointer-events-none"></div>
         </div>
 
         {/* Content Container (Layered on top of background) */}
