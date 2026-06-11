@@ -36,7 +36,7 @@ export default function Services() {
       icon: PenTool,
       title: 'UX/UI & Product Design',
       desc: 'Premium application interface layouts, modern design tokens, interactive prototyping, and cross-functional Figma libraries.',
-      features: ['Interactive high-fi wireframes', 'Responsive component guides', 'Design systems building']
+      features: ['Interactive wireframes', 'Responsive component guides', 'Design systems building']
     },
     {
       id: 6,
@@ -52,48 +52,45 @@ export default function Services() {
       
       {/* Title */}
       <div className="text-center max-w-3xl mx-auto mb-20">
-        <div className="inline-block text-purple-600 text-xs font-semibold tracking-widest uppercase mb-2">
+        <div className="inline-block text-slate-500 text-xs font-semibold tracking-widest uppercase mb-2">
           Technical Capabilities
         </div>
         <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-800">
           Our Services
         </h2>
-        <p className="text-slate-600 mt-4 text-sm md:text-base leading-relaxed font-light">
+        <p className="text-slate-500 mt-4 text-sm md:text-base leading-relaxed font-normal">
           High-performance remote operations designed to extend your engineering pipelines, reduce deployment bottlenecks, and optimize fiscal workflows.
         </p>
       </div>
 
-      {/* Services Grid */}
+      {/* Services Grid - Professional, Clean Design */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
         {serviceList.map((service) => {
           const IconComponent = service.icon;
           return (
             <div
               key={service.id}
-              className="liquid-glass liquid-glass-hover rounded-3xl p-6 relative overflow-hidden group flex flex-col justify-between transition-all duration-300"
+              className="bg-white border border-slate-200/60 rounded-3xl p-6 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-sm hover:border-slate-300"
             >
-              {/* Background gradient hint */}
-              <div className="absolute -right-12 -bottom-12 w-28 h-28 rounded-full bg-gradient-to-tr from-purple-500/5 to-amber-500/5 blur-2xl group-hover:from-purple-500/10 group-hover:to-amber-500/10 transition-all duration-300"></div>
-              
               <div className="space-y-4">
-                {/* Icon wrapper */}
-                <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 shadow-inner">
-                  <IconComponent className="w-5 h-5" />
+                {/* Minimalist Icon wrapper */}
+                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
+                  <IconComponent className="w-4 h-4" />
                 </div>
                 
-                <h3 className="text-xl font-bold font-display text-slate-800 group-hover:text-purple-600 transition-colors duration-300">
+                <h3 className="text-lg font-bold font-display text-slate-800">
                   {service.title}
                 </h3>
                 
-                <p className="text-xs text-slate-500 leading-relaxed font-light">
+                <p className="text-xs text-slate-500 leading-relaxed font-normal">
                   {service.desc}
                 </p>
 
                 {/* Bullets */}
                 <ul className="space-y-2 pt-2">
                   {service.features.map((feat, index) => (
-                    <li key={index} className="flex items-center gap-2 text-[11px] text-slate-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                    <li key={index} className="flex items-center gap-2 text-[11px] text-slate-600 font-normal">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
                       {feat}
                     </li>
                   ))}
@@ -102,8 +99,8 @@ export default function Services() {
 
               {/* Arrow link decoration */}
               <div className="flex justify-end pt-6 relative z-10">
-                <span className="w-8 h-8 rounded-full bg-slate-900/5 hover:bg-purple-500/10 text-slate-600 hover:text-purple-600 flex items-center justify-center transition-all duration-300">
-                  <ArrowUpRight className="w-4 h-4" />
+                <span className="w-8 h-8 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-all duration-200">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
               </div>
             </div>
@@ -111,8 +108,7 @@ export default function Services() {
         })}
       </div>
 
-      {/* Custom Empty Container holding the specified Single-page services comment placeholder */}
-      {/* We preserve the layout element and keep it empty with the requested comment inside */}
+      {/* Legacy placeholder */}
       <div className="hidden">
         {/* Services Content Empty */}
       </div>

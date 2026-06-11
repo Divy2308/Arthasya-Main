@@ -20,16 +20,7 @@ function App() {
   return (
     <div className="relative min-h-screen flex flex-col justify-between overflow-x-hidden bg-[#FAF9F6]">
       
-      {/* ================= BACKGROUND PASTEL BLOB LAYER ================= */}
-      {/* Contained pointer-events-none layer to prevent layout jank or mobile scrolling leaks */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Soft Warm Rose/Amber Blob */}
-        <div className="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full bg-gradient-to-br from-rose-200/40 to-amber-200/45 blur-[120px] animate-blob-1"></div>
-        {/* Soft Lavender/Indigo Blob */}
-        <div className="absolute -bottom-[10%] -right-[10%] w-[65vw] h-[65vw] max-w-[650px] max-h-[650px] rounded-full bg-gradient-to-tr from-purple-200/35 to-indigo-200/35 blur-[120px] animate-blob-2"></div>
-        {/* Soft Mint/Teal Blob */}
-        <div className="absolute top-[35%] left-[12%] w-[45vw] h-[45vw] max-w-[450px] max-h-[450px] rounded-full bg-gradient-to-r from-teal-200/30 to-cyan-200/30 blur-[100px] animate-blob-3"></div>
-      </div>
+      {/* Clean flat background structure */}
 
       {/* Navigation Header */}
       <Header onOpenModal={() => setIsModalOpen(true)} />
