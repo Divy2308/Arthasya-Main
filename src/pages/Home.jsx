@@ -64,19 +64,19 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl mt-20">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center transition-all duration-300 hover:bg-white/15 hover:border-white/30 shadow-lg">
               <div className="text-2xl md:text-3xl font-bold font-display text-white mb-1">150+</div>
-              <div className="text-[10px] text-slate-300 uppercase tracking-widest font-semibold font-display">Engineers Placed</div>
+              <div className="text-xs text-white/90 uppercase tracking-widest font-bold font-display">Engineers Placed</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center transition-all duration-300 hover:bg-white/15 hover:border-white/30 shadow-lg">
               <div className="text-2xl md:text-3xl font-bold font-display text-white mb-1">98%</div>
-              <div className="text-[10px] text-slate-300 uppercase tracking-widest font-semibold font-display">Client Retention</div>
+              <div className="text-xs text-white/90 uppercase tracking-widest font-bold font-display">Client Retention</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center transition-all duration-300 hover:bg-white/15 hover:border-white/30 shadow-lg">
               <div className="text-2xl md:text-3xl font-bold font-display text-white mb-1">45%</div>
-              <div className="text-[10px] text-slate-300 uppercase tracking-widest font-semibold font-display">Cost Reduction</div>
+              <div className="text-xs text-white/90 uppercase tracking-widest font-bold font-display">Cost Reduction</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center transition-all duration-300 hover:bg-white/15 hover:border-white/30 shadow-lg">
               <div className="text-2xl md:text-3xl font-bold font-display text-white mb-1">24/7</div>
-              <div className="text-[10px] text-slate-300 uppercase tracking-widest font-semibold font-display">Global Operations</div>
+              <div className="text-xs text-white/90 uppercase tracking-widest font-bold font-display">Global Operations</div>
             </div>
           </div>
         </div>
