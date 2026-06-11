@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VortexFlow | Elite Outsourcing & Technical Scaling Partner</title>
+  <meta name="description" content="Accelerate your growth with VortexFlow's high-efficiency offshore engineering, operations, and support teams. Premium outsourcing solutions for modern enterprises.">
+  
+  <!-- Google Fonts: Inter & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind CSS Play CDN (v3) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              indigo: '#6366f1',
+              purple: '#a855f7',
+              cyan: '#06b6d4',
+              pink: '#ec4899',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/css">
+    /* Hardware-accelerated fluid/organic background animations */
+    @keyframes blob-float-1 {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      }
+      33% {
+        transform: translate3d(50px, -80px, 0) scale(1.15) rotate(120deg);
+      }
+      66% {
+        transform: translate3d(-30px, 40px, 0) scale(0.9) rotate(240deg);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(360deg);
+      }
+    }
+    
+    @keyframes blob-float-2 {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      }
+      50% {
+        transform: translate3d(-60px, 80px, 0) scale(1.2) rotate(-180deg);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(-360deg);
+      }
+    }
+    
+    @keyframes blob-float-3 {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      }
+      50% {
+        transform: translate3d(60px, -40px, 0) scale(0.85) rotate(180deg);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(360deg);
+      }
+    }
+    
+    .animate-blob-1 {
+      animation: blob-float-1 25s infinite ease-in-out;
+    }
+    
+    .animate-blob-2 {
+      animation: blob-float-2 30s infinite ease-in-out;
+    }
+    
+    .animate-blob-3 {
+      animation: blob-float-3 20s infinite ease-in-out;
+    }
+
+    /* Custom Webkit scrollbar to fit dark luxury theme */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617; /* slate-950 */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      border: 2px solid #020617;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+    
+    /* Liquid Glass styling utility overrides */
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .liquid-glass-hover:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Transition classes for mobile navbar height expansion */
+    .navbar-collapsed {
+      max-height: 58px;
+    }
+    .navbar-expanded {
+      max-height: 400px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-purple-500 selection:text-white relative min-h-screen overflow-x-hidden">
+
+  <!-- ================= BACKGROUND LAYER ================= -->
+  <!-- Fully contained pointer-events-none layer to avoid mobile horizontal overflows -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 blur-[110px] animate-blob-1"></div>
+    <div class="absolute -bottom-[10%] -right-[10%] w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] rounded-full bg-gradient-to-tr from-cyan-500/15 to-blue-600/20 blur-[130px] animate-blob-2"></div>
+    <div class="absolute top-[30%] left-[15%] w-[45vw] h-[45vw] max-w-[450px] max-h-[450px] rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-[100px] animate-blob-3"></div>
+  </div>
+
+  <!-- ================= FLOATING NAVIGATION BAR ================= -->
+  <header class="w-full flex justify-center px-4 md:px-0">
+    <nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl liquid-glass rounded-full px-6 py-3.5 transition-all duration-500 ease-in-out navbar-collapsed overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-2 text-xl font-bold tracking-tight text-white font-display select-none">
+          <div class="relative w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-cyan-400 flex items-center justify-center p-0.5">
+            <div class="w-full h-full bg-slate-950 rounded-[6px] flex items-center justify-center">
+              <i data-lucide="activity" class="w-4 h-4 text-cyan-400"></i>
+            </div>
+          </div>
+          <span>Vortex<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400 font-medium font-sans">Flow</span></span>
+        </a>
+        
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+          <a href="#home" class="nav-link hover:text-cyan-400 transition-colors duration-300 relative py-1">Home</a>
+          <a href="#services" class="nav-link hover:text-cyan-400 transition-colors duration-300 relative py-1">Services</a>
+          <a href="#about" class="nav-link hover:text-cyan-400 transition-colors duration-300 relative py-1">About</a>
+          <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors duration-300 relative py-1">Contact Us</a>
+        </div>
+        
+        <!-- Desktop Action Button -->
+        <div class="hidden md:block">
+          <button onclick="openModal()" class="relative group overflow-hidden px-5 py-2 rounded-full text-xs font-semibold tracking-wide uppercase text-white bg-white/[0.04] border border-white/10 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+            <span class="relative z-10 flex items-center gap-1.5">
+              Talk to Expert <i data-lucide="chevron-right" class="w-3 h-3 group-hover:translate-x-0.5 transition-transform"></i>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu Toggle Button -->
+        <div class="md:hidden">
+          <button id="menu-toggle" aria-label="Toggle Navigation Menu" class="p-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-full focus:outline-none transition-all duration-200">
+            <i id="menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Expandable Panel -->
+      <div id="mobile-menu" class="opacity-0 pointer-events-none md:hidden flex flex-col space-y-4 pt-4 pb-2 text-slate-300 text-sm font-medium transition-all duration-300">
+        <hr class="border-white/5">
+        <a href="#home" class="mobile-nav-link hover:text-cyan-400 hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2">
+          <i data-lucide="home" class="w-4 h-4 text-cyan-400"></i> Home
+        </a>
+        <a href="#services" class="mobile-nav-link hover:text-cyan-400 hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2">
+          <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i> Services
+        </a>
+        <a href="#about" class="mobile-nav-link hover:text-cyan-400 hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2">
+          <i data-lucide="user" class="w-4 h-4 text-cyan-400"></i> About Us
+        </a>
+        <a href="#contact" class="mobile-nav-link hover:text-cyan-400 hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i> Contact Us
+        </a>
+        <button onclick="openModal()" class="w-full text-center py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 border border-white/10 transition-all duration-300 mt-2">
+          Talk to Expert
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="relative min-h-screen pt-36 pb-20 px-4 md:px-8 flex flex-col justify-center items-center z-10 overflow-hidden">
+    <div class="max-w-5xl text-center flex flex-col items-center">
+      <!-- Glow Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 mb-8 animate-fade-in shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+        <span class="text-xs font-semibold text-cyan-300 tracking-wider uppercase font-display">Premium Outsourcing Redefined</span>
+      </div>
+      
+      <!-- Headline -->
+      <h1 class="text-4xl md:text-7xl font-extrabold font-display leading-[1.08] tracking-tight text-white mb-6">
+        Outsource Smart.<br class="hidden md:inline">
+        Scale Your Teams <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-500 drop-shadow-[0_0_30px_rgba(6,182,212,0.2)]">Without Limits</span>.
+      </h1>
+      
+      <!-- Subheading -->
+      <p class="max-w-2xl text-slate-400 text-base md:text-xl font-light leading-relaxed mb-10">
+        VortexFlow engineers elite, pre-vetted remote software engineering, customer operations, and support organizations. Seamlessly integrate premium offshore squads into your technical pipeline with flexible compliance structures.
+      </p>
+      
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+        <!-- Primary Action -->
+        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide text-center text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 transition-all duration-300 shadow-[0_8px_30px_rgba(168,85,247,0.3)] hover:shadow-[0_12px_40px_rgba(168,85,247,0.5)] transform hover:-translate-y-0.5 border border-white/10">
+          Partner With Us
+        </a>
+        <!-- Secondary Action -->
+        <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide text-center text-slate-300 hover:text-white bg-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-md">
+          Explore Our Model
+        </a>
+      </div>
+      
+      <!-- Floating Dashboard Cards/Metrics Mockup -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-20">
+        <div class="liquid-glass rounded-2xl p-5 text-center transition-all duration-300 hover:border-purple-500/20">
+          <div class="text-2xl md:text-3xl font-bold font-display text-white mb-1">150+</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Engineers Placed</div>
+        </div>
+        <div class="liquid-glass rounded-2xl p-5 text-center transition-all duration-300 hover:border-cyan-500/20">
+          <div class="text-2xl md:text-3xl font-bold font-display text-white mb-1">98%</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Client Retention</div>
+        </div>
+        <div class="liquid-glass rounded-2xl p-5 text-center transition-all duration-300 hover:border-purple-500/20">
+          <div class="text-2xl md:text-3xl font-bold font-display text-white mb-1">45%</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Cost Reduction</div>
+        </div>
+        <div class="liquid-glass rounded-2xl p-5 text-center transition-all duration-300 hover:border-cyan-500/20">
+          <div class="text-2xl md:text-3xl font-bold font-display text-white mb-1">24/7</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Global Operations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES SECTION ================= -->
+  <section id="services" class="py-28 relative z-10 max-w-6xl mx-auto px-4 md:px-8 border-t border-white/5">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-2">Technical Capabilities</div>
+      <h2 class="text-3xl md:text-5xl font-bold font-display text-white">Our Services</h2>
+      <p class="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
+        High-performance operations designed to extend your capabilities, reduce deployment bottlenecks, and optimize fiscal workflows.
+      </p>
+    </div>
+    
+    <!-- Services Grid Container: MANDATED EMPTY CONTENT WITH SPECIFIC COMMENT -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Services Content Empty -->
+    </div>
+  </section>
+
+  <!-- ================= ABOUT US SECTION ================= -->
+  <section id="about" class="py-28 relative z-10 max-w-6xl mx-auto px-4 md:px-8 border-t border-white/5">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Column: Narrative Copywriting -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-block text-cyan-400 text-xs font-semibold tracking-widest uppercase">The Vortex Advantage</div>
+        <h2 class="text-3xl md:text-5xl font-bold font-display text-white leading-tight">
+          Engineered for Efficiency.<br>
+          Built for Global Scale.
+        </h2>
+        <p class="text-slate-400 leading-relaxed font-light">
+          Founded in 2021, VortexFlow bridge-builds technical talent resource gaps for high-growth silicon valley startups and multi-national enterprise entities. We don't just supply staffing; we consult, construct, and fully manage high-output technical nodes.
+        </p>
+        <p class="text-slate-400 leading-relaxed font-light">
+          Our operational methodology focuses on frictionless tooling integration, standard overlap hours, and strict SOC2 & GDPR compliant environments. This ensures your remote staff feels like a natural branch of your in-office development crew.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+          <div class="flex items-start gap-3">
+            <div class="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white">Bank-Grade Compliance</h4>
+              <p class="text-xs text-slate-400 mt-1">GDPR ready, secured physical workspaces, end-to-end data encryption.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="p-2 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-400">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white">Timezone Sync</h4>
+              <p class="text-xs text-slate-400 mt-1">Minimum 4-hour daily overlap matching standard PST/EST workflows.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Interactive Values/Metric Card Grid -->
+      <div class="lg:col-span-5 grid grid-cols-1 gap-6">
+        <div class="liquid-glass rounded-3xl p-6 relative overflow-hidden group border border-white/10 hover:border-cyan-500/20 transition-all duration-500">
+          <div class="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-cyan-500/10 blur-xl group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+          <div class="text-sm text-cyan-400 font-medium mb-1">01 / Talent Quality</div>
+          <h3 class="text-xl font-semibold text-white mb-2 font-display">Top 2% Vetted Engineers</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Our multi-step rigorous technical assessments filter applicants for cognitive capability, coding proficiency, systemic architecture comprehension, and professional English speaking skills.
+          </p>
+        </div>
+        
+        <div class="liquid-glass rounded-3xl p-6 relative overflow-hidden group border border-white/10 hover:border-purple-500/20 transition-all duration-500">
+          <div class="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-purple-500/10 blur-xl group-hover:bg-purple-500/20 transition-all duration-500"></div>
+          <div class="text-sm text-purple-400 font-medium mb-1">02 / Dynamic Scaling</div>
+          <h3 class="text-xl font-semibold text-white mb-2 font-display">14-Day Ramp-Up Cycles</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Scale-up or scale-down resources in alignment with your sprint releases. We maintain a warm bench of certified cloud architects, full-stack engineers, and customer advocates ready to deploy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT US SECTION ================= -->
+  <section id="contact" class="py-28 relative z-10 max-w-6xl mx-auto px-4 md:px-8 border-t border-white/5">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Left Column: Office details and info -->
+      <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
+        <div>
+          <div class="inline-block text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-2">Connect with Us</div>
+          <h2 class="text-3xl md:text-5xl font-bold font-display text-white">Let's Build Together</h2>
+          <p class="text-slate-400 mt-4 font-light text-sm md:text-base leading-relaxed">
+            Ready to integrate top-tier offshore specialists into your core business cycle? Reach out directly or schedule an consultation window.
+          </p>
+        </div>
+        
+        <div class="space-y-4 pt-6 lg:pt-0">
+          <!-- Headquarter Card -->
+          <div class="liquid-glass rounded-2xl p-4 flex items-start gap-4 border border-white/5">
+            <i data-lucide="map-pin" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+            <div>
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Headquarters</h4>
+              <p class="text-sm text-slate-300 mt-1">456 Montgomery St, San Francisco, CA 94104</p>
+            </div>
+          </div>
+          
+          <!-- Offshore HQ Card -->
+          <div class="liquid-glass rounded-2xl p-4 flex items-start gap-4 border border-white/5">
+            <i data-lucide="globe" class="w-5 h-5 text-purple-400 mt-0.5"></i>
+            <div>
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Engineering Hub</h4>
+              <p class="text-sm text-slate-300 mt-1">Brigade Tech Gardens, Whitefield, Bangalore 560066</p>
+            </div>
+          </div>
+          
+          <!-- Direct Lines -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="liquid-glass rounded-2xl p-4 flex items-start gap-3 border border-white/5">
+              <i data-lucide="phone" class="w-4 h-4 text-cyan-400 mt-0.5"></i>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase">Call Us</h4>
+                <p class="text-xs text-white mt-0.5 font-medium">+1 (415) 555-0198</p>
+              </div>
+            </div>
+            <div class="liquid-glass rounded-2xl p-4 flex items-start gap-3 border border-white/5">
+              <i data-lucide="mail" class="w-4 h-4 text-purple-400 mt-0.5"></i>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase">Write Securely</h4>
+                <p class="text-xs text-white mt-0.5 font-medium">partner@vortexflow.co</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Interactive CTA invitation card -->
+      <div class="lg:col-span-7">
+        <div class="liquid-glass rounded-3xl p-8 border border-white/10 relative overflow-hidden h-full flex flex-col justify-between shadow-[0_15px_40px_rgba(0,0,0,0.4)]">
+          <div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-gradient-to-tr from-purple-500/10 to-cyan-500/10 blur-2xl"></div>
+          
+          <div class="relative z-10 space-y-6">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold font-display text-white">Create a Custom Scaling Blueprint</h3>
+            <p class="text-slate-400 leading-relaxed font-light text-sm">
+              Schedule a 30-minute discovery workshop. Our engineers will audit your current resource pipelines, outline pricing matrices tailored to your stack, and detail SLA integration timelines.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Detailed salary benchmarks by country and skillset
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Standard workspace security compliance checklist
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Immediate availability calendar analysis
+              </li>
+            </ul>
+          </div>
+          
+          <div class="relative z-10 pt-8 mt-6">
+            <button onclick="openModal()" class="w-full py-4 rounded-xl text-sm font-semibold tracking-wide uppercase text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] transition-all duration-300 border border-white/10">
+              Talk to Our Experts Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MINIMALIST FOOTER ================= -->
+  <footer class="py-12 border-t border-white/5 relative z-10 max-w-6xl mx-auto px-4 md:px-8 text-center text-slate-500 space-y-4">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center space-x-2 text-sm font-bold tracking-tight text-white font-display">
+        <i data-lucide="activity" class="w-4 h-4 text-cyan-400"></i>
+        <span>Vortex<span class="text-slate-400 font-medium font-sans">Flow</span></span>
+      </a>
+      
+      <!-- Rights -->
+      <div class="text-xs text-slate-500">
+        &copy; 2026 VortexFlow Operations Inc. All rights reserved.
+      </div>
+      
+      <!-- Socials -->
+      <div class="flex items-center space-x-4">
+        <a href="#" aria-label="GitHub" class="p-1 text-slate-500 hover:text-white transition-colors"><i data-lucide="github" class="w-4 h-4"></i></a>
+        <a href="#" aria-label="LinkedIn" class="p-1 text-slate-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        <a href="#" aria-label="Twitter" class="p-1 text-slate-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= "TALK TO EXPERT" MODAL OVERLAY ================= -->
+  <div id="modal-container" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none transition-all duration-300 ease-out">
+    <!-- Backdrop Blur with dark shade -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-lg transition-opacity duration-300"></div>
+    
+    <!-- Modal Card (Liquid Glass styling) -->
+    <div id="modal-card" class="relative w-full max-w-lg bg-slate-950/40 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl transform scale-95 transition-all duration-300 ease-out z-10">
+      
+      <!-- Close Button -->
+      <button id="modal-close" aria-label="Close Contact Form Modal" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-full hover:bg-white/5 transition-all duration-200">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      
+      <!-- Modal Inner Container (for dynamic swap on success) -->
+      <div id="modal-body-container" class="space-y-6">
+        <!-- Heading -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-cyan-400 text-xs font-semibold tracking-wider uppercase">
+            <i data-lucide="messages-square" class="w-4 h-4"></i> Consult an Expert
+          </div>
+          <h3 class="text-2xl font-bold font-display text-white">Begin Scaling Your Team</h3>
+          <p class="text-xs text-slate-400">
+            Submit your resource parameters and a solutions architect will contact you within 4 business hours.
+          </p>
+        </div>
+        
+        <!-- Form -->
+        <form id="expert-contact-form" class="space-y-4 text-left">
+          <!-- Full Name -->
+          <div class="space-y-1.5">
+            <label for="full_name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Full Name *</label>
+            <input type="text" id="full_name" name="full_name" required placeholder="John Doe" 
+                   class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 transition-all duration-200">
+          </div>
+          
+          <!-- Email Address -->
+          <div class="space-y-1.5">
+            <label for="email_address" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address *</label>
+            <input type="email" id="email_address" name="email_address" required placeholder="john@company.com" 
+                   class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 transition-all duration-200">
+          </div>
+          
+          <!-- Company Name -->
+          <div class="space-y-1.5">
+            <label for="company_name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Company Name</label>
+            <input type="text" id="company_name" name="company_name" placeholder="Acme Corporation" 
+                   class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 transition-all duration-200">
+          </div>
+          
+          <!-- Message -->
+          <div class="space-y-1.5">
+            <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Requirements / Message *</label>
+            <textarea id="message" name="message" required rows="4" placeholder="Briefly describe your required roles, technologies (React, Node, Python, etc.), and scaling urgency..." 
+                      class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 transition-all duration-200 resize-none"></textarea>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 rounded-xl text-sm font-semibold tracking-wide uppercase text-white hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 border border-white/10 flex items-center justify-center gap-2">
+            <span>Submit Request</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT SYSTEM ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Elements
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    const modalContainer = document.getElementById('modal-container');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modalCard = document.getElementById('modal-card');
+    const modalClose = document.getElementById('modal-close');
+    const expertContactForm = document.getElementById('expert-contact-form');
+    const modalBodyContainer = document.getElementById('modal-body-container');
+
+    // Store original modal contents to restore when reopened
+    const originalModalBodyHTML = modalBodyContainer.innerHTML;
+
+    // --- NAVBAR MOBILE ARCHITECTURE ---
+    let isMenuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        // Expand Navbar
+        navbar.classList.remove('navbar-collapsed', 'rounded-full');
+        navbar.classList.add('navbar-expanded', 'rounded-3xl');
+        mobileMenu.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+        
+        // Update Hamburger Icon to X
+        menuIcon.setAttribute('data-lucide', 'x');
+        lucide.createIcons({
+          attrs: { id: 'menu-icon' },
+          nameList: ['x']
+        });
+      } else {
+        closeMobileMenu();
+      }
+    });
+
+    function closeMobileMenu() {
+      isMenuOpen = false;
+      navbar.classList.remove('navbar-expanded', 'rounded-3xl');
+      navbar.classList.add('navbar-collapsed', 'rounded-full');
+      mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+      
+      // Animate expansion container collapsing
+      setTimeout(() => {
+        if (!isMenuOpen) {
+          mobileMenu.classList.add('hidden');
+        }
+      }, 300);
+
+      // Update X Icon to Hamburger
+      menuIcon.setAttribute('data-lucide', 'menu');
+      lucide.createIcons({
+        attrs: { id: 'menu-icon' },
+        nameList: ['menu']
+      });
+    }
+
+    // Close mobile menu on clicking any mobile navigation link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    });
+
+    // --- SCROLL-SPY ACTIVE HEADER LINKS ---
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      const scrollPosition = window.scrollY + 100; // Offset for navbar
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-cyan-400', 'font-semibold');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('text-cyan-400', 'font-semibold');
+        }
+      });
+
+      // Glass navbar scrolling subtle backdrop effect
+      if (window.scrollY > 20) {
+        navbar.style.boxShadow = '0 16px 40px rgba(0, 0, 0, 0.6)';
+        navbar.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+        navbar.style.background = 'rgba(15, 23, 42, 0.4)'; // Darken glass on scroll
+      } else {
+        navbar.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.5)';
+        navbar.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.02)';
+      }
+    });
+
+    // --- ACCESSIBLE MODAL CONTROLS & MICRO-INTERACTIONS ---
+    function openModal() {
+      // Restore modal body if it was filled with success message previously
+      modalBodyContainer.innerHTML = originalModalBodyHTML;
+      
+      // Re-attach form submit listener since innerHTML swap breaks references
+      const form = document.getElementById('expert-contact-form');
+      if (form) {
+        form.addEventListener('submit', handleFormSubmit);
+      }
+      
+      // Reinitialize Lucide Icons in the newly rendered form HTML
+      lucide.createIcons();
+
+      // Show overlay
+      modalContainer.classList.remove('opacity-0', 'pointer-events-none');
+      modalContainer.classList.add('opacity-100');
+      
+      // Animate scale/slide-up
+      modalCard.classList.remove('scale-95');
+      modalCard.classList.add('scale-100');
+
+      // Prevent background scrolling
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal() {
+      // Animate scale/slide-down
+      modalCard.classList.remove('scale-100');
+      modalCard.classList.add('scale-95');
+
+      // Hide overlay
+      modalContainer.classList.add('opacity-0', 'pointer-events-none');
+      modalContainer.classList.remove('opacity-100');
+
+      // Restore background scrolling
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Modal close triggers
+    modalClose.addEventListener('click', closeModal);
+    
+    // Backdrop click close sequence (Accessibility & UX feature)
+    modalBackdrop.addEventListener('click', (e) => {
+      // Prevents clicks directly inside card bubble from bubbling up
+      closeModal();
+    });
+
+    // Keyboard ESC key listener (Accessibility feature)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modalContainer.classList.contains('pointer-events-none')) {
+        closeModal();
+      }
+    });
+
+    // --- DYNAMIC FORM HANDLER & SUCCESS VISUAL INTERACTION ---
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target);
+      const data = {
+        fullName: formData.get('full_name'),
+        emailAddress: formData.get('email_address'),
+        companyName: formData.get('company_name') || 'Not Specified',
+        message: formData.get('message'),
+        submittedAt: new Date().toISOString()
+      };
+      
+      // Print values to local console for developer inspection
+      console.log('--- Expert Consultancy Form Submission Received ---');
+      console.log(data);
+      
+      // Render animated glass success notification within modal card
+      modalBodyContainer.innerHTML = `
+        <div class="flex flex-col items-center text-center py-8 space-y-6">
+          <div class="relative flex items-center justify-center">
+            <!-- Pulsing outer circle -->
+            <div class="absolute w-20 h-20 rounded-full bg-cyan-400/20 animate-ping"></div>
+            <!-- Glow background circle -->
+            <div class="w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+              <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <h3 class="text-2xl font-bold font-display text-white">Request Sent Successfully</h3>
+            <p class="text-sm text-slate-300 px-4">
+              Thank you, <span class="text-cyan-400 font-semibold">${data.fullName}</span>. Your details have been transmitted. One of our lead technical advisors will reach out to you at <span class="text-cyan-400 font-medium">${data.emailAddress}</span>.
+            </p>
+          </div>
+          
+          <button onclick="closeModal()" class="px-6 py-2.5 bg-white/[0.04] border border-white/10 hover:border-cyan-500/30 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white rounded-full transition-all duration-200">
+            Close Window
+          </button>
+        </div>
+      `;
+      
+      // Re-render check icon inside newly added success layout
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
