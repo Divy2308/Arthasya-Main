@@ -74,7 +74,6 @@
 .custom-navbar-glass {
   background: rgba(255, 255, 255, 0.5) !important;
   backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
   border: none !important;
   transition: background .2s ease, backdrop-filter .2s ease !important;
 }
@@ -83,7 +82,6 @@
 .liquid-glass {
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
 }
