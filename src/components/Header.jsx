@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Activity, Menu, X, ChevronRight, Home, Layers, User, Mail } from 'lucide-react';
+import { Activity, Menu, X, Home, Layers, User, Mail } from 'lucide-react';
 
 export default function Header({ onOpenModal }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,24 +9,36 @@ export default function Header({ onOpenModal }) {
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
-  const isActive = (path) => {
-    return location.pathname === path;
+  const isActive = (path, hash) => {
+    if (path === '/services') {
+      return location.pathname === '/services';
+    }
+    if (location.pathname !== '/') {
+      return false;
+    }
+    if (hash === '#about') {
+      return location.hash === '#about';
+    }
+    if (hash === '#contact') {
+      return location.hash === '#contact';
+    }
+    return !location.hash || location.hash === '#home';
   };
 
-  const navLinkClass = (path) => {
-    if (isActive(path)) {
-      return 'text-slate-900 font-semibold';
+  const navLinkClass = (path, hash) => {
+    if (isActive(path, hash)) {
+      return 'text-black font-semibold';
     }
-    return 'text-slate-600 hover:text-slate-900 font-medium';
+    return 'text-black hover:opacity-70 font-medium';
   };
 
   return (
     <header className="w-full flex justify-center px-4 md:px-0 relative z-50">
       <nav
         id="navbar"
-        className={`fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl custom-navbar-glass px-6 py-3.5 shadow-sm ${
+        className={`fixed top-6 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl custom-navbar-glass px-8 py-4 shadow-sm ${
           isMenuOpen
             ? 'navbar-expanded rounded-2xl'
             : 'navbar-collapsed rounded-full'
@@ -35,24 +47,23 @@ export default function Header({ onOpenModal }) {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
-            to="/"
-            className="flex items-center space-x-2 text-lg font-bold tracking-tight text-slate-900 font-display select-none"
+            to="/#home"
+            className="flex items-center text-black font-display select-none"
           >
-            <Activity className="w-5 h-5 text-slate-800" />
-            <span className="font-sans font-bold tracking-tight">
+            <span className="font-sans font-bold tracking-tight text-[2rem] leading-none">
               Arthasya
             </span>
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-8 text-sm">
+          <div className="hidden md:flex items-center space-x-10 text-lg">
             <Link
-              to="/"
-              className={`transition-all duration-200 relative py-1 ${navLinkClass('/')}`}
+              to="/#home"
+              className={`transition-all duration-200 relative py-1 ${navLinkClass('/', '#home')}`}
             >
               Home
-              {isActive('/') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-900 rounded-full"></span>
+              {isActive('/', '#home') && (
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-black rounded-full"></span>
               )}
             </Link>
             <Link
@@ -61,25 +72,25 @@ export default function Header({ onOpenModal }) {
             >
               Services
               {isActive('/services') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-900 rounded-full"></span>
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-black rounded-full"></span>
               )}
             </Link>
             <Link
-              to="/about"
-              className={`transition-all duration-200 relative py-1 ${navLinkClass('/about')}`}
+              to="/#about"
+              className={`transition-all duration-200 relative py-1 ${navLinkClass('/', '#about')}`}
             >
               About
-              {isActive('/about') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-900 rounded-full"></span>
+              {isActive('/', '#about') && (
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-black rounded-full"></span>
               )}
             </Link>
             <Link
-              to="/contact"
-              className={`transition-all duration-200 relative py-1 ${navLinkClass('/contact')}`}
+              to="/#contact"
+              className={`transition-all duration-200 relative py-1 ${navLinkClass('/', '#contact')}`}
             >
               Contact Us
-              {isActive('/contact') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-900 rounded-full"></span>
+              {isActive('/', '#contact') && (
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-black rounded-full"></span>
               )}
             </Link>
           </div>
@@ -88,7 +99,7 @@ export default function Header({ onOpenModal }) {
           <div className="hidden md:block">
             <button
               onClick={onOpenModal}
-              className="px-5 py-2 rounded-full text-xs font-semibold tracking-wide uppercase text-white bg-slate-900 hover:bg-slate-800 transition-all duration-200 shadow-sm"
+              className="px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide uppercase text-white bg-slate-900 hover:bg-slate-800 transition-all duration-200 shadow-sm"
             >
               Talk to Expert
             </button>
@@ -99,55 +110,55 @@ export default function Header({ onOpenModal }) {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-1.5 rounded-full focus:outline-none transition-all duration-200 text-slate-800 hover:bg-slate-900/5"
+              className="p-2 rounded-full focus:outline-none transition-all duration-200 text-black hover:bg-black/5"
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
         {/* Mobile menu expanded container */}
         <div
-          className={`md:hidden flex flex-col space-y-4 pt-4 pb-2 text-sm font-medium transition-all duration-300 text-slate-700 ${
+          className={`md:hidden flex flex-col space-y-4 pt-4 pb-2 text-lg font-medium transition-all duration-300 text-black ${
             isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
           <hr className="border-slate-200/50" />
           <Link
-            to="/"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-slate-900 ${
-              isActive('/') ? 'font-bold pl-2 text-slate-900' : ''
+            to="/#home"
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-black ${
+              isActive('/', '#home') ? 'font-bold pl-2 text-black' : ''
             }`}
           >
-            <Home className="w-4 h-4 text-slate-700" /> Home
+            <Home className={`w-5 h-5 text-black`} /> Home
           </Link>
           <Link
             to="/services"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-slate-900 ${
-              isActive('/services') ? 'font-bold pl-2 text-slate-900' : ''
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-black ${
+              isActive('/services') ? 'font-bold pl-2 text-black' : ''
             }`}
           >
-            <Layers className="w-4 h-4 text-slate-700" /> Services
+            <Layers className={`w-5 h-5 text-black`} /> Services
           </Link>
           <Link
-            to="/about"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-slate-900 ${
-              isActive('/about') ? 'font-bold pl-2 text-slate-900' : ''
+            to="/#about"
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-black ${
+              isActive('/', '#about') ? 'font-bold pl-2 text-black' : ''
             }`}
           >
-            <User className="w-4 h-4 text-slate-700" /> About Us
+            <User className={`w-5 h-5 text-black`} /> About Us
           </Link>
           <Link
-            to="/contact"
-            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-slate-900 ${
-              isActive('/contact') ? 'font-bold pl-2 text-slate-900' : ''
+            to="/#contact"
+            className={`hover:pl-2 transition-all duration-200 py-1.5 flex items-center gap-2 hover:text-black ${
+              isActive('/', '#contact') ? 'font-bold pl-2 text-black' : ''
             }`}
           >
-            <Mail className="w-4 h-4 text-slate-700" /> Contact Us
+            <Mail className={`w-5 h-5 text-black`} /> Contact Us
           </Link>
           <button
             onClick={onOpenModal}
-            className="w-full text-center py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 transition-all duration-200 mt-2 shadow-sm"
+            className="w-full text-center py-3 rounded-xl text-sm font-semibold uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 transition-all duration-200 mt-2 shadow-sm"
           >
             Talk to Expert
           </button>

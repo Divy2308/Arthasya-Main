@@ -72,10 +72,10 @@
 
 /* Glassmorphism specs from screenshot */
 .custom-navbar-glass {
-  background: #f7f6f545 !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid #EFEEEE !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border: none !important;
   transition: background .2s ease, backdrop-filter .2s ease !important;
 }
 
@@ -97,8 +97,8 @@
 
 /* Height toggling utilities for mobile navbar */
 .navbar-collapsed {
-  max-height: 64px;
+  max-height: 80px;
 }
 .navbar-expanded {
-  max-height: 420px;
+  max-height: 520px;
 }

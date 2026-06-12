@@ -1,65 +1,48 @@
 import React from 'react';
-import { Cpu, CheckSquare, Cloud, Headphones, PenTool, Shield, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calculator, ArrowLeftRight, BookOpen, ArrowUpRight } from 'lucide-react';
 
 export default function Services() {
   const serviceList = [
     {
       id: 1,
-      icon: Cpu,
-      title: 'Software Engineering',
-      desc: 'Deploy dedicated full-stack developers, mobile engineers, and systems architects. Expert in React, Node, Python, Go, and enterprise cloud patterns.',
-      features: ['Dedicated team nodes', 'Full version control sync', 'Daily scrum integration']
+      icon: Calculator,
+      title: 'Accounting Outsourcing Services',
+      desc: 'Deploy expert offshore senior accountants for end-to-end accounting operations, from bookkeeping to financial analysis, tailored to your firm\'s workflows.',
+      path: '/services/accounting-outsourcing',
+      features: ['Dedicated senior accountants', 'Tailored reporting & compliance', '70% average cost savings']
     },
     {
       id: 2,
-      icon: CheckSquare,
-      title: 'QA & Test Automation',
-      desc: 'Continuous regression coverage, automated UI testing, API test suites, and load profiling. Keep your release cycles bug-free.',
-      features: ['Selenium & Playwright coverage', 'CI/CD pipeline test runs', 'Detailed bug reports']
+      icon: ArrowLeftRight,
+      title: 'AR & AP Management',
+      desc: 'Optimize your accounts receivable & payable handling cycle. Automated billing, legitimacy verification, and cash-flow operations managed with precision.',
+      path: '/services/ar-ap-management',
+      features: ['Automated invoice workflows', 'Bill review and error check', 'SLA cash flow management']
     },
     {
       id: 3,
-      icon: Cloud,
-      title: 'DevOps & Cloud Systems',
-      desc: 'Infrastructure management, container orchestrations, cloud cost optimization, and secure deployment pipelines (AWS, GCP, Azure).',
-      features: ['Kubernetes cluster setups', 'Infrastructure-as-Code (Terraform)', '24/7 systems monitoring']
-    },
-    {
-      id: 4,
-      icon: Headphones,
-      title: 'Technical Support & Ops',
-      desc: 'Scalable tier-1 and tier-2 client support, data entry management, content moderation, and operational workflow extensions.',
-      features: ['Multilingual capability', 'Strict SLA ticket responses', '24/7 shift rotations']
-    },
-    {
-      id: 5,
-      icon: PenTool,
-      title: 'UX/UI & Product Design',
-      desc: 'Premium application interface layouts, modern design tokens, interactive prototyping, and cross-functional Figma libraries.',
-      features: ['Interactive wireframes', 'Responsive component guides', 'Design systems building']
-    },
-    {
-      id: 6,
-      icon: Shield,
-      title: 'Compliance & Security Ops',
-      desc: 'Workspaces configured for SOC2, HIPAA, and GDPR compliance. Manage secure endpoint assets, encrypted networks, and access control.',
-      features: ['MDM device setups', 'VPN access routing', 'Biometric physical security']
+      icon: BookOpen,
+      title: 'Bookkeeping Services',
+      desc: 'Ensure precise ledger records, transactions tracking, and real-time bank reconciliations. Clean financial datasets kept up-to-date daily.',
+      path: '/services/bookkeeping',
+      features: ['Certified bookkeeping squads', 'Ledger & expense tracking', 'QuickBooks & Xero experts']
     }
   ];
 
   return (
-    <div className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-8 py-32 flex flex-col items-center">
+    <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-36 flex flex-col items-center">
       
       {/* Title */}
-      <div className="text-center max-w-3xl mx-auto mb-20">
-        <div className="inline-block text-slate-500 text-xs font-semibold tracking-widest uppercase mb-2">
+      <div className="text-center max-w-3xl mx-auto mb-24">
+        <div className="inline-block text-slate-500 text-sm font-bold tracking-widest uppercase mb-3">
           Technical Capabilities
         </div>
-        <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-800">
+        <h2 className="text-4xl md:text-6xl font-bold font-display text-slate-800">
           Our Services
         </h2>
-        <p className="text-slate-500 mt-4 text-sm md:text-base leading-relaxed font-normal">
-          High-performance remote operations designed to extend your engineering pipelines, reduce deployment bottlenecks, and optimize fiscal workflows.
+        <p className="text-slate-600 mt-4 text-base md:text-lg leading-relaxed font-normal">
+          High-performance remote operations designed to extend your financial pipelines, reduce deployment bottlenecks, and optimize fiscal workflows.
         </p>
       </div>
 
@@ -68,29 +51,30 @@ export default function Services() {
         {serviceList.map((service) => {
           const IconComponent = service.icon;
           return (
-            <div
+            <Link
               key={service.id}
-              className="bg-white border border-slate-200/60 rounded-3xl p-6 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-sm hover:border-slate-300"
+              to={service.path}
+              className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
             >
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {/* Minimalist Icon wrapper */}
-                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
-                  <IconComponent className="w-4 h-4" />
+                <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
+                  <IconComponent className="w-6 h-6 text-slate-900" />
                 </div>
                 
-                <h3 className="text-lg font-bold font-display text-slate-800">
+                <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left">
                   {service.title}
                 </h3>
                 
-                <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
                   {service.desc}
                 </p>
 
                 {/* Bullets */}
-                <ul className="space-y-2 pt-2">
+                <ul className="space-y-3 pt-3">
                   {service.features.map((feat, index) => (
-                    <li key={index} className="flex items-center gap-2 text-[11px] text-slate-600 font-normal">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                    <li key={index} className="flex items-center gap-3 text-xs md:text-sm text-slate-700 font-normal">
+                      <span className="w-2 h-2 rounded-full bg-slate-400"></span>
                       {feat}
                     </li>
                   ))}
@@ -98,19 +82,14 @@ export default function Services() {
               </div>
 
               {/* Arrow link decoration */}
-              <div className="flex justify-end pt-6 relative z-10">
-                <span className="w-8 h-8 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-all duration-200">
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+              <div className="flex justify-end pt-8 relative z-10">
+                <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-slate-900 group-hover:bg-slate-100 flex items-center justify-center transition-all duration-200">
+                  <ArrowUpRight className="w-4 h-4" />
                 </span>
               </div>
-            </div>
+            </Link>
           );
         })}
-      </div>
-
-      {/* Legacy placeholder */}
-      <div className="hidden">
-        {/* Services Content Empty */}
       </div>
 
     </div>
