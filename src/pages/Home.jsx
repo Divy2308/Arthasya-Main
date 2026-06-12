@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, Calculator, ArrowLeftRight, BookOpen } from 'lucide-react';
-import arthasyaBgImage from '../assets/arthasya bg image.png';
+import arthasyaBgImage from '../assets/arthasya bg image.jpg';
 import About from './About';
 import Contact from './Contact';
 
