@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ExpertModal from './components/ExpertModal';
 import Home from './pages/Home';
-import Services from './pages/Services';
 import AccountingOutsourcing from './pages/services/AccountingOutsourcing';
 import ArApManagement from './pages/services/ArApManagement';
 import Bookkeeping from './pages/services/Bookkeeping';
@@ -41,7 +40,7 @@ function App() {
       <main className="flex-grow w-full relative z-10">
         <Routes>
           <Route path="/" element={<Home onOpenModal={() => setIsModalOpen(true)} />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/services" element={<Navigate to="/#services" replace />} />
           <Route path="/services/accounting-outsourcing" element={<AccountingOutsourcing />} />
           <Route path="/services/ar-ap-management" element={<ArApManagement />} />
           <Route path="/services/bookkeeping" element={<Bookkeeping />} />
