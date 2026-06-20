@@ -2,58 +2,50 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Clock, Zap, CheckCircle2 } from 'lucide-react';
 
-export default function Bookkeeping() {
+export default function AccountingBookkeeping() {
   const serviceDetails = [
     {
-      title: 'Ledger Management',
-      desc: 'We offer expert ledger management services, ensuring your financial records are always accurately recorded.'
+      title: 'Chart of Accounts Setup',
+      desc: 'Structuring accounts for clarity and reporting, aligning account categories with your requirements.'
     },
     {
       title: 'Transactions Recording',
-      desc: 'Our team meticulously records every transaction, maintaining detailed, up-to-date financial data for your business.'
+      desc: 'Meticulously recording every transaction, maintaining detailed, up-to-date financial data for your business.'
     },
     {
-      title: 'Bank Reconciliations',
-      desc: 'We manage seamless bank reconciliations, ensuring your financial records align with your bank statements.'
+      title: 'Bank & Credit Card Reconciliation',
+      desc: 'Matching records with bank/card statements, identifying discrepancies and unusual entries.'
     },
     {
       title: 'Accounts Payable and Receivable',
-      desc: 'Stanfox keeps your accounts payable and receivable in check to keep cash flow efficient & confirm timely payments.'
+      desc: 'Tracking vendor invoices and payments, monitoring customer balances and collections.'
     },
     {
-      title: 'Expense Tracking & Categorization',
-      desc: 'We categorize & track all expenses accurately, giving you a clear overview of where your business funds are being used.'
+      title: 'Daily Bookkeeping',
+      desc: 'Recording transactions consistently, categorizing income and expenses, and keeping books continuously updated.'
+    },
+    {
+      title: 'Cash Flow Tracking',
+      desc: 'Monitoring inflows and outflows, identifying patterns and potential gaps.'
     },
     {
       title: 'Financial Reporting',
-      desc: 'Our expert team provides comprehensive financial reports, offering you valuable insights into your business\'s financial results.'
+      desc: 'Preparing balance sheets, income statements, cash flow reports, and AR/AP aging supporting schedules.'
+    },
+    {
+      title: 'Bookkeeping Cleanup Support',
+      desc: 'Catch-up bookkeeping for delayed records, correction of inconsistencies/errors, and preparing books for accurate reporting.'
     }
   ];
 
   const benefits = [
     {
-      title: 'Certified & Experienced Bookkeepers',
-      desc: 'Outsourcing to Stanfox means your financial records are handled by certified & experienced bookkeepers.'
-    },
-    {
-      title: 'Prepare Seamless Reports',
-      desc: 'Our team generates flawless financial reports, tailored to your needs, for smooth & transparent decision-making.'
-    },
-    {
       title: 'Complete Record Keeping',
-      desc: 'We take full responsibility for maintaining detailed & organized records, confirming that nothing is overlooked.'
+      desc: 'No details are overlooked in maintaining your day-to-day financial transactions.'
     },
     {
-      title: 'Tech-Savvy Bookkeepers',
-      desc: 'Outsource to our tech-savvy bookkeepers who use the latest software tools for streamlined accuracy and speed.'
-    },
-    {
-      title: 'Keep the Data Up-to-Date',
-      desc: 'With our services, you’ll always have current, real-time financial data, helping you make informed decisions.'
-    },
-    {
-      title: 'Save on In-House Hiring',
-      desc: 'By choosing Stanfox, you save on recruitment & training, gaining access to skilled bookkeepers at a minimal cost.'
+      title: 'Cost Effective',
+      desc: 'Save on in-house hiring costs while accessing experienced bookkeeping talent.'
     }
   ];
 
@@ -63,13 +55,13 @@ export default function Bookkeeping() {
       <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24">
         <div className="text-center max-w-3xl mx-auto space-y-8">
           <div className="inline-block text-slate-800 text-sm font-bold tracking-widest uppercase bg-slate-100 px-4 py-1.5 rounded-full border border-slate-300">
-            Bookkeeping Services
+            USA Service
           </div>
           <h1 className="text-4xl md:text-6xl font-bold font-display text-slate-800 leading-tight">
-            Professional Bookkeeping Services
+            Accounting and Bookkeeping Services
           </h1>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-normal">
-            At Stanfox, we offer complete support for your business's bookkeeping needs, providing customized solutions to ensure financial clarity & efficiency.
+            Streamlined ledger maintenance, daily transaction logging, and real-time bank reconciliation for US-based companies.
           </p>
           <div className="flex justify-center pt-6">
             <Link
@@ -88,10 +80,10 @@ export default function Bookkeeping() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-6 space-y-8 text-left">
               <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-800 leading-tight">
-                Tailored Bookkeeping Services
+                Tailored USA Accounting Solutions
               </h2>
               <p className="text-slate-600 leading-relaxed font-normal text-base md:text-lg">
-                At Stanfox, we provide customized bookkeeping services designed to fit your firm’s specific needs. Ensure precise financial records with Stanfox's professional bookkeeping services, designed to streamline your business operations.
+                Ensure precise financial records with our professional bookkeeping services, designed to streamline your business operations and maintain regulatory compliance.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-slate-100">
                 <div className="flex items-center gap-3.5">
@@ -114,21 +106,13 @@ export default function Bookkeeping() {
                 <div className="text-4xl md:text-5xl font-bold text-slate-800 mb-2">50%+</div>
                 <div className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-bold">Cost Reduction</div>
               </div>
-              <div className="bg-slate-50 border border-slate-200/50 rounded-2xl p-6 md:p-8 text-center">
-                <div className="text-4xl md:text-5xl font-bold text-slate-800 mb-2">45+</div>
-                <div className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-bold">Dedicated Accountants</div>
-              </div>
-              <div className="bg-slate-50 border border-slate-200/50 rounded-2xl p-6 md:p-8 text-center">
-                <div className="text-4xl md:text-5xl font-bold text-slate-800 mb-2">10+ Years</div>
-                <div className="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-bold">U.S. Tax/Accounting Exp</div>
-              </div>
             </div>
           </div>
         </div>
 
         {/* Detailed services list */}
         <h3 className="text-3xl md:text-4xl font-bold font-display text-slate-800 text-left mb-10">
-          Bookkeeping Services Capabilities
+          Accounting & Bookkeeping Capabilities
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceDetails.map((service, index) => (
@@ -156,14 +140,11 @@ export default function Bookkeeping() {
       <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 border-t border-slate-200/50 pt-24">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-800">
-            Benefits of Outsourcing Bookkeeping to Stanfox
+            Benefits of Our Bookkeeping Services
           </h2>
-          <p className="text-slate-600 mt-4 text-base md:text-lg font-normal">
-            Outsourcing your bookkeeping means tapping into a team of experts, providing accuracy, efficiency & peace of mind.
-          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           {benefits.map((benefit, index) => (
             <div key={index} className="space-y-4 p-8 md:p-10 bg-white border border-slate-200/40 rounded-3xl shadow-sm hover:border-slate-300 transition-all duration-300">
               <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700">

@@ -1,11 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, ArrowRight, Calculator, ArrowLeftRight, BookOpen } from 'lucide-react';
+import { Sparkles, ArrowRight, Calculator, ArrowLeftRight, BookOpen, Users, Coins, FileSpreadsheet, FileCheck, Percent, Briefcase } from 'lucide-react';
 import arthasyaBgImage from '../assets/arthasya bg image.jpg';
 import About from './About';
 import Contact from './Contact';
 
 export default function Home({ onOpenModal }) {
+  const [activeTab, setActiveTab] = useState('usa');
+
+  const usaServices = [
+    {
+      title: 'Accounting and Bookkeeping Services',
+      desc: 'Streamlined ledger maintenance, daily transaction logging, and real-time bank reconciliation.',
+      link: '/services/usa/accounting-bookkeeping',
+      icon: Calculator
+    },
+    {
+      title: 'White Label Accounting Services',
+      desc: 'Expand your firm\'s capacity with seamless, under-your-brand back-office accounting solutions.',
+      link: '/services/usa/white-label-accounting',
+      icon: Users
+    },
+    {
+      title: 'AR & AP Management Services',
+      desc: 'Optimize working capital, automate invoicing, and accelerate receivables collection.',
+      link: '/services/usa/ar-ap-management',
+      icon: ArrowLeftRight
+    },
+    {
+      title: 'Payroll Management',
+      desc: 'Accurate payroll processing, compliance reporting, benefits administration, and direct deposits.',
+      link: '/services/usa/payroll-management',
+      icon: Coins
+    },
+    {
+      title: 'Xero & QuickBooks Accounting services',
+      desc: 'Certified software experts managing, cleaning, and optimizing your cloud accounting files.',
+      link: '/services/usa/xero-quickbooks',
+      icon: Sparkles
+    },
+    {
+      title: 'Year End Services',
+      desc: 'Thorough ledger closing, tax-ready adjustments, and audit trail preparation.',
+      link: '/services/usa/year-end-services',
+      icon: BookOpen
+    },
+    {
+      title: 'Preparation of Financial Statement',
+      desc: 'Accurate balance sheets, income statements, and cash flow reports in compliance with US GAAP.',
+      link: '/services/usa/financial-statement-preparation',
+      icon: FileSpreadsheet
+    },
+    {
+      title: 'Filing 1099 and issue forms',
+      desc: 'Hassle-free contractor form distribution, verification, and IRS submission.',
+      link: '/services/usa/filing-1099',
+      icon: FileCheck
+    },
+    {
+      title: 'Sales Tax Services',
+      desc: 'Multi-state sales tax registration, calculation, filing, and nexus tracking.',
+      link: '/services/usa/sales-tax',
+      icon: Percent
+    }
+  ];
+
+  const australiaServices = [
+    {
+      title: 'Accounting & Taxation Services',
+      desc: 'End-to-end accounting, BAS preparation, and ATO compliance for Australian enterprises.',
+      link: '/services/australia/accounting-taxation',
+      icon: Calculator
+    },
+    {
+      title: 'Paraplanning & Broker Support Services',
+      desc: 'SOA drafting, product research, compliance monitoring, and administrative support for financial planners.',
+      link: '/services/australia/paraplanning-broker-support',
+      icon: Briefcase
+    }
+  ];
+
+  const currentServices = activeTab === 'usa' ? usaServices : australiaServices;
+
   return (
     <div className="relative z-10 w-full flex flex-col items-center">
       
@@ -114,7 +190,7 @@ export default function Home({ onOpenModal }) {
 
       {/* Services Preview Section */}
       <section id="services" className="py-28 px-4 md:px-8 border-t border-slate-200/50 w-full max-w-7xl">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-block text-slate-500 text-sm font-bold tracking-widest uppercase mb-3">
             Technical Capabilities
           </div>
@@ -126,72 +202,60 @@ export default function Home({ onOpenModal }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-          <Link
-            to="/services/accounting-outsourcing"
-            className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
-          >
-            <div className="space-y-6">
-              <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
-                <Calculator className="w-6 h-6 text-slate-900" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left">
-                Accounting Outsourcing
-              </h3>
-              <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
-                Deploy dedicated offshore senior accountants for bookkeeping, bank reconciliations, and financial reporting.
-              </p>
-            </div>
-            <div className="flex justify-end pt-8 relative z-10">
-              <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-slate-900 group-hover:bg-slate-100 flex items-center justify-center transition-all duration-200">
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
-          </Link>
+        {/* Tab Switcher */}
+        <div className="flex justify-center mb-16">
+          <div className="bg-slate-100/80 backdrop-blur-sm border border-slate-200/50 p-1.5 rounded-full flex gap-1 shadow-inner">
+            <button
+              onClick={() => setActiveTab('usa')}
+              className={`px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 ${
+                activeTab === 'usa'
+                  ? 'bg-slate-900 text-white shadow-md'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/40'
+              }`}
+            >
+              USA Services
+            </button>
+            <button
+              onClick={() => setActiveTab('australia')}
+              className={`px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 ${
+                activeTab === 'australia'
+                  ? 'bg-slate-900 text-white shadow-md'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/40'
+              }`}
+            >
+              Australia Services
+            </button>
+          </div>
+        </div>
 
-          <Link
-            to="/services/ar-ap-management"
-            className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
-          >
-            <div className="space-y-6">
-              <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
-                <ArrowLeftRight className="w-6 h-6 text-slate-900" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left">
-                AR & AP Management
-              </h3>
-              <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
-                Streamline payments, automate invoice matching, verify legitimacy, and optimize cash collection.
-              </p>
-            </div>
-            <div className="flex justify-end pt-8 relative z-10">
-              <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-slate-900 group-hover:bg-slate-100 flex items-center justify-center transition-all duration-200">
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
-          </Link>
-
-          <Link
-            to="/services/bookkeeping"
-            className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
-          >
-            <div className="space-y-6">
-              <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
-                <BookOpen className="w-6 h-6 text-slate-900" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left">
-                Bookkeeping Services
-              </h3>
-              <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
-                Maintain spotless ledgers, track expenses, record daily transactions, and update bank reconciliations.
-              </p>
-            </div>
-            <div className="flex justify-end pt-8 relative z-10">
-              <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-slate-900 group-hover:bg-slate-100 flex items-center justify-center transition-all duration-200">
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
-          </Link>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full transition-all duration-500">
+          {currentServices.map((service) => {
+            const IconComponent = service.icon;
+            return (
+              <Link
+                key={service.link}
+                to={service.link}
+                className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
+              >
+                <div className="space-y-6">
+                  <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
+                    <IconComponent className="w-6 h-6 text-slate-900" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left leading-snug">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
+                    {service.desc}
+                  </p>
+                </div>
+                <div className="flex justify-end pt-8 relative z-10">
+                  <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-slate-900 group-hover:bg-slate-100 flex items-center justify-center transition-all duration-200">
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
