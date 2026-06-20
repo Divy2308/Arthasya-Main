@@ -9,6 +9,7 @@ import {
   Mail,
   ChevronDown,
   ChevronRight,
+  Briefcase,
 } from 'lucide-react';
 
 export default function Header({ onOpenModal }) {
@@ -92,6 +93,10 @@ export default function Header({ onOpenModal }) {
 
     if (hash === '#about') {
       return location.hash === '#about';
+    }
+
+    if (hash === '#careers') {
+      return location.hash === '#careers';
     }
 
     if (hash === '#contact') {
@@ -222,74 +227,78 @@ export default function Header({ onOpenModal }) {
                         <ChevronRight size={16} />
                       </div>
                       
-                      {/* USA Nested Dropdown */}
+                      {/* USA Nested Dropdown Wrapper */}
                       <div 
-                        className="absolute left-full top-0 ml-2 invisible group-hover/usa:visible w-[340px] rounded-[2rem] shadow-sm p-3 flex flex-col gap-1"
-                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(22px)', WebkitBackdropFilter: 'blur(22px)', border: '1px solid rgba(255, 255, 255, 0.4)' }}
+                        className="absolute left-full top-0 -ml-3 pl-5 invisible group-hover/usa:visible w-[360px] z-30"
                       >
-                        <Link
-                          to="/services/usa/accounting-bookkeeping"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
+                        <div
+                          className="w-full rounded-[2rem] shadow-sm p-3 flex flex-col gap-1"
+                          style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(22px)', WebkitBackdropFilter: 'blur(22px)', border: '1px solid rgba(255, 255, 255, 0.4)' }}
                         >
-                          Accounting & Bookkeeping
-                        </Link>
-                        <Link
-                          to="/services/usa/white-label-accounting"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          White Label Accounting
-                        </Link>
-                        <Link
-                          to="/services/usa/ar-ap-management"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          AR & AP Management
-                        </Link>
-                        <Link
-                          to="/services/usa/payroll-management"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          Payroll Management
-                        </Link>
-                        <Link
-                          to="/services/usa/xero-quickbooks"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          Xero & QuickBooks Services
-                        </Link>
-                        <Link
-                          to="/services/usa/year-end-services"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          Year End Services
-                        </Link>
-                        <Link
-                          to="/services/usa/financial-statement-preparation"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          Preparation of Financial Statement
-                        </Link>
-                        <Link
-                          to="/services/usa/filing-1099"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          Filing 1099 and Issue Forms
-                        </Link>
-                        <Link
-                          to="/services/usa/sales-tax"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          Sales Tax Services
-                        </Link>
+                          <Link
+                            to="/services/usa/accounting-bookkeeping"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Accounting & Bookkeeping
+                          </Link>
+                          <Link
+                            to="/services/usa/white-label-accounting"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            White Label Accounting
+                          </Link>
+                          <Link
+                            to="/services/usa/ar-ap-management"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            AR & AP Management
+                          </Link>
+                          <Link
+                            to="/services/usa/payroll-management"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Payroll Management
+                          </Link>
+                          <Link
+                            to="/services/usa/xero-quickbooks"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Xero & QuickBooks Services
+                          </Link>
+                          <Link
+                            to="/services/usa/year-end-services"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Year End Services
+                          </Link>
+                          <Link
+                            to="/services/usa/financial-statement-preparation"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Preparation of Financial Statement
+                          </Link>
+                          <Link
+                            to="/services/usa/filing-1099"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Filing 1099 and Issue Forms
+                          </Link>
+                          <Link
+                            to="/services/usa/sales-tax"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Sales Tax Services
+                          </Link>
+                        </div>
                       </div>
                     </div>
 
@@ -300,25 +309,29 @@ export default function Header({ onOpenModal }) {
                         <ChevronRight size={16} />
                       </div>
                       
-                      {/* Australia Nested Dropdown */}
+                      {/* Australia Nested Dropdown Wrapper */}
                       <div 
-                        className="absolute left-full top-0 ml-2 invisible group-hover/aus:visible w-[320px] rounded-[2rem] shadow-sm p-3 flex flex-col gap-1"
-                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(22px)', WebkitBackdropFilter: 'blur(22px)', border: '1px solid rgba(255, 255, 255, 0.4)' }}
+                        className="absolute left-full top-0 -ml-3 pl-5 invisible group-hover/aus:visible w-[340px] z-30"
                       >
-                        <Link
-                          to="/services/australia/accounting-taxation"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
+                        <div
+                          className="w-full rounded-[2rem] shadow-sm p-3 flex flex-col gap-1"
+                          style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(22px)', WebkitBackdropFilter: 'blur(22px)', border: '1px solid rgba(255, 255, 255, 0.4)' }}
                         >
-                          Accounting & Taxation
-                        </Link>
-                        <Link
-                          to="/services/australia/paraplanning-broker-support"
-                          className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
-                          onClick={() => setIsServicesHovered(false)}
-                        >
-                          Paraplanning & Broker Support
-                        </Link>
+                          <Link
+                            to="/services/australia/accounting-taxation"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Accounting & Taxation
+                          </Link>
+                          <Link
+                            to="/services/australia/paraplanning-broker-support"
+                            className="px-4 py-3 text-base text-black hover:opacity-70 font-medium transition-opacity"
+                            onClick={() => setIsServicesHovered(false)}
+                          >
+                            Paraplanning & Broker Support
+                          </Link>
+                        </div>
                       </div>
                     </div>
 
@@ -335,6 +348,19 @@ export default function Header({ onOpenModal }) {
               >
                 About
                 {isActive('/', '#about') && (
+                  <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black rounded-full" />
+                )}
+              </Link>
+
+              <Link
+                to="/#careers"
+                className={`relative py-1 ${navLinkClass(
+                  '/',
+                  '#careers'
+                )}`}
+              >
+                Careers
+                {isActive('/', '#careers') && (
                   <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black rounded-full" />
                 )}
               </Link>
@@ -569,14 +595,25 @@ export default function Header({ onOpenModal }) {
             <Link
               to="/#about"
               className="flex items-center gap-3"
+              onClick={() => setIsMenuOpen(false)}
             >
               <User size={20} />
               About Us
             </Link>
 
             <Link
+              to="/#careers"
+              className="flex items-center gap-3"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Briefcase size={20} />
+              Careers
+            </Link>
+
+            <Link
               to="/#contact"
               className="flex items-center gap-3"
+              onClick={() => setIsMenuOpen(false)}
             >
               <Mail size={20} />
               Contact Us

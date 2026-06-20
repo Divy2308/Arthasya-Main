@@ -264,6 +264,87 @@ export default function Home({ onOpenModal }) {
         <About />
       </section>
 
+      {/* Careers Section */}
+      <section id="careers" className="py-20 md:py-24 px-4 md:px-8 border-t border-slate-200/50 w-full max-w-7xl flex flex-col items-center">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <div className="inline-block text-slate-500 text-sm font-bold tracking-widest uppercase mb-3">
+            Join Our Team
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-800">
+            Career Opportunities
+          </h2>
+          <p className="text-slate-650 mt-4 text-sm md:text-base leading-relaxed font-normal">
+            We are constantly seeking elite accounting, finance, and engineering specialists to join our global remote network.
+          </p>
+        </div>
+
+        {/* Roles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-12">
+          {[
+            {
+              title: 'Senior US Accountant',
+              location: 'Remote (US Shift)',
+              desc: 'Manage corporate tax files, compile GAAP-compliant financial statements, and lead client accounts on Xero/QuickBooks.',
+              badge: 'Full-Time'
+            },
+            {
+              title: 'Paraplanner & Broker Support',
+              location: 'Remote (AU Shift)',
+              desc: 'Draft comprehensive Statements of Advice (SOA), perform product research, and manage client compliance for AU financial advisors.',
+              badge: 'Full-Time'
+            },
+            {
+              title: 'Remote Software Engineer',
+              location: 'Remote (Anywhere)',
+              desc: 'Develop high-scale cloud platforms, maintain system security, and coordinate integration strategies with client dev squads.',
+              badge: 'Contract / FT'
+            }
+          ].map((role) => (
+            <div
+              key={role.title}
+              className="bg-white border border-slate-200/60 rounded-3xl p-6 md:p-8 relative flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-350 hover:-translate-y-0.5"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{role.location}</span>
+                  <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">{role.badge}</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold font-display text-slate-800 text-left">
+                  {role.title}
+                </h3>
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-normal text-left">
+                  {role.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Application CTA */}
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 text-center w-full max-w-4xl shadow-sm hover:border-slate-300 transition-all duration-300">
+          <h3 className="text-lg md:text-xl font-bold font-display text-slate-800">
+            Don't see a matching position?
+          </h3>
+          <p className="text-xs md:text-sm text-slate-600 mt-2 max-w-2xl mx-auto">
+            We are always looking for exceptional talent. If you have expertise in accounting, paraplanning, or engineering, send your resume and cover letter.
+          </p>
+          <div className="mt-5 flex flex-col sm:flex-row justify-center items-center gap-3">
+            <button
+              onClick={onOpenModal}
+              className="w-full sm:w-auto px-6 py-2.5 bg-slate-900 hover:bg-slate-800 rounded-full text-xs font-semibold tracking-wide uppercase text-white transition-all duration-200"
+            >
+              Submit Inquiry
+            </button>
+            <a
+              href="mailto:partner@arthasya.co"
+              className="w-full sm:w-auto px-6 py-2.5 bg-slate-50 border border-slate-200 hover:bg-slate-100 rounded-full text-xs font-semibold tracking-wide text-slate-800 transition-all duration-200"
+            >
+              Email Resume
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="w-full bg-[#FAF9F6] border-t border-slate-200/50">
         <Contact onOpenModal={onOpenModal} />

@@ -100,3 +100,19 @@
 .navbar-expanded {
   max-height: 520px;
 }
+
+/* Premium micro-scrollbar for services selection container */
+.services-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.services-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.services-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.12);
+  border-radius: 99px;
+}
+.services-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.24);
+}
+

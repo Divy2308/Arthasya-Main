@@ -30,10 +30,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-16">
           
-          {/* Column 1: Brand details & Contact Info (4 cols) */}
-          <div className="lg:col-span-4 space-y-6 text-left">
+          {/* Column 1: Brand details & Contact Info (3 cols) */}
+          <div className="md:col-span-6 lg:col-span-3 space-y-6 text-left">
             <Link
               to="/#home"
               className="text-white font-bold text-[2rem] leading-none tracking-tight font-display inline-block hover:opacity-80 transition-opacity"
@@ -41,11 +41,11 @@ export default function Footer() {
               Arthasya
             </Link>
             
-            <p className="text-slate-400 text-sm md:text-base leading-relaxed font-normal">
+            <p className="text-slate-400 text-sm leading-relaxed font-normal">
               Strategic capacity partners for global accounting and enterprise engineering solutions. We bridge-build top-tier remote squads to streamline your core operational pipeline.
             </p>
 
-            <div className="space-y-3 pt-2 text-sm text-slate-300">
+            <div className="space-y-3 pt-2 text-xs md:text-sm text-slate-300">
               <a
                 href="mailto:partner@arthasya.co"
                 className="flex items-center gap-2.5 hover:text-white transition-colors"
@@ -69,41 +69,114 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Services (2 cols) */}
-          <div className="lg:col-span-2 space-y-5 text-left md:pl-4">
+          {/* Column 2: USA Services (3 cols) */}
+          <div className="md:col-span-6 lg:col-span-3 space-y-5 text-left md:pl-2">
             <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200">
-              Services
+              USA Services
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               <li>
                 <Link
-                  to="/services/accounting-outsourcing"
-                  className="text-sm md:text-base text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                  to="/services/usa/accounting-bookkeeping"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
                 >
-                  Accounting
+                  Accounting & Bookkeeping
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services/ar-ap-management"
-                  className="text-sm md:text-base text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                  to="/services/usa/white-label-accounting"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  White Label Accounting
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/usa/ar-ap-management"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
                 >
                   AR & AP Management
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services/bookkeeping"
-                  className="text-sm md:text-base text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                  to="/services/usa/payroll-management"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
                 >
-                  Bookkeeping
+                  Payroll Management
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/usa/xero-quickbooks"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  Xero & QuickBooks Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/usa/year-end-services"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  Year End Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/usa/financial-statement-preparation"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  Financial Statement Prep
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/usa/filing-1099"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  Filing 1099 & Issue Forms
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/usa/sales-tax"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  Sales Tax Services
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Company (2 cols) */}
-          <div className="lg:col-span-2 space-y-5 text-left md:pl-4">
+          {/* Column 3: Australia Services (2 cols) */}
+          <div className="md:col-span-4 lg:col-span-2 space-y-5 text-left md:pl-2">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200">
+              Australia Services
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  to="/services/australia/accounting-taxation"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  Accounting & Taxation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/australia/paraplanning-broker-support"
+                  className="text-xs md:text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
+                  Paraplanning & Broker Support
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Company (2 cols) */}
+          <div className="md:col-span-4 lg:col-span-2 space-y-5 text-left md:pl-2">
             <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200">
               Company
             </h4>
@@ -111,7 +184,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/#home"
-                  className="text-sm md:text-base text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                  className="text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
                 >
                   Home
                 </Link>
@@ -119,7 +192,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/#about"
-                  className="text-sm md:text-base text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                  className="text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
                 >
                   About Us
                 </Link>
@@ -127,15 +200,18 @@ export default function Footer() {
               <li>
                 <Link
                   to="/#contact"
-                  className="text-sm md:text-base text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                  className="text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
                 >
                   Contact Us
                 </Link>
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-sm md:text-base text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200 cursor-pointer">
+                <Link
+                  to="/#careers"
+                  className="text-sm text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                >
                   Careers
-                </span>
+                </Link>
                 <span className="text-[10px] font-bold text-slate-300 bg-white/10 border border-white/10 px-1.5 py-0.5 rounded-full uppercase tracking-wider">
                   Hiring
                 </span>
@@ -143,38 +219,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Newsletter (4 cols) */}
-          <div className="lg:col-span-4 space-y-5 text-left">
+          {/* Column 5: Newsletter (2 cols) */}
+          <div className="md:col-span-4 lg:col-span-2 space-y-5 text-left">
             <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200">
-              Subscribe to Insights
+              Subscribe
             </h4>
-            <p className="text-slate-400 text-sm md:text-base leading-relaxed font-normal">
-              Receive updates on global capacity expansion, finance offshoring strategies, and remote operational blueprints.
+            <p className="text-slate-400 text-xs leading-relaxed font-normal">
+              Receive updates on global capacity, offshoring, and remote blueprints.
             </p>
             
             <form onSubmit={handleSubscribe} className="space-y-2">
               <div className="relative flex items-center">
                 <input
                   type="email"
-                  placeholder="name@company.com"
+                  placeholder="email@co.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-4 pr-12 py-3 rounded-full text-white placeholder-slate-500 bg-slate-900/40 border border-slate-800 focus:border-slate-700 focus:outline-none transition-all duration-200 shadow-sm"
+                  className="w-full pl-3 pr-10 py-2 rounded-full text-xs text-white placeholder-slate-500 bg-slate-900/40 border border-slate-800 focus:border-slate-700 focus:outline-none transition-all duration-200 shadow-sm"
                 />
                 <button
                   type="submit"
                   aria-label="Subscribe"
-                  className="absolute right-1.5 p-2 rounded-full text-slate-950 bg-white hover:bg-slate-100 transition-all active:scale-95 flex items-center justify-center"
+                  className="absolute right-1 p-1.5 rounded-full text-slate-950 bg-white hover:bg-slate-100 transition-all active:scale-95 flex items-center justify-center"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
               
               {subscribed && (
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 bg-white/5 border border-white/10 px-3 py-2 rounded-xl transition-all duration-300">
-                  <CheckCircle className="w-4 h-4 text-white flex-shrink-0" />
-                  <span>Thank you for subscribing! Check your inbox soon.</span>
+                <div className="flex items-center gap-2 text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2 py-1.5 rounded-xl transition-all duration-300">
+                  <CheckCircle className="w-3.5 h-3.5 text-white flex-shrink-0" />
+                  <span>Subscribed! Check inbox.</span>
                 </div>
               )}
             </form>

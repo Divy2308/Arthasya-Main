@@ -86,7 +86,7 @@ export default function ExpertModal({ isOpen, onClose }) {
       ></div>
 
       {/* Modal Card (Solid White Professional Styling) */}
-      <div className="relative w-full max-w-lg bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-2xl transform transition-all duration-300 z-10">
+      <div className="relative w-full max-w-4xl bg-white border border-slate-200 rounded-3xl p-5 md:p-6 shadow-2xl transform transition-all duration-300 z-10">
         
         {/* Close Button */}
         <button
@@ -140,75 +140,81 @@ export default function ExpertModal({ isOpen, onClose }) {
               </p>
             </div>
 
-            <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
-              {/* Full Name */}
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="fullName"
-                  className="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
-                >
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  required
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  placeholder="John Doe"
-                  className="w-full bg-slate-55 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200"
-                />
+            <form onSubmit={handleFormSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 text-left">
+              {/* Left Column (Inputs) */}
+              <div className="space-y-4 flex flex-col justify-between">
+                {/* Full Name */}
+                <div className="space-y-1.5">
+                  <label
+                    htmlFor="fullName"
+                    className="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
+                  >
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    required
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="John Doe"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200"
+                  />
+                </div>
+
+                {/* Email Address */}
+                <div className="space-y-1.5">
+                  <label
+                    htmlFor="emailAddress"
+                    className="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
+                  >
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="emailAddress"
+                    name="emailAddress"
+                    required
+                    value={formData.emailAddress}
+                    onChange={handleInputChange}
+                    placeholder="john@company.com"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200"
+                  />
+                </div>
+
+                {/* Company Name */}
+                <div className="space-y-1.5">
+                  <label
+                    htmlFor="companyName"
+                    className="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
+                  >
+                    Company Name
+                  </label>
+                  <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder="Acme Corporation"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200"
+                  />
+                </div>
               </div>
 
-              {/* Email Address */}
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="emailAddress"
-                  className="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
+              {/* Right Column (Checkboxes) */}
+              <div className="flex flex-col">
+                <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">
+                  Services of Interest
+                </label>
+                <div 
+                  className="w-full border border-slate-200 rounded-xl p-3 md:p-4 bg-slate-50 overflow-y-auto services-scrollbar space-y-3 flex-grow"
+                  style={{ height: '200px' }}
                 >
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="emailAddress"
-                  name="emailAddress"
-                  required
-                  value={formData.emailAddress}
-                  onChange={handleInputChange}
-                  placeholder="john@company.com"
-                  className="w-full bg-slate-55 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200"
-                />
-              </div>
-
-              {/* Company Name */}
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="companyName"
-                  className="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
-                >
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="Acme Corporation"
-                  className="w-full bg-slate-55 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200"
-                />
-              </div>
-
-              {/* Services Checkboxes */}
-              <div className="space-y-1.5">
-                <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider">
-                  Services of Interest (Optional)
-                </label>
-                <div className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 max-h-[160px] overflow-y-auto space-y-4">
                   <div>
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">USA Services</div>
-                    <div className="grid grid-cols-1 gap-2.5">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">USA Services</div>
+                    <div className="grid grid-cols-1 gap-3">
                       {[
                         'Accounting and Bookkeeping Services',
                         'White Label Accounting Services',
@@ -220,35 +226,57 @@ export default function ExpertModal({ isOpen, onClose }) {
                         'Filing 1099 and issue forms',
                         'Sales Tax Services'
                       ].map((service) => (
-                        <label key={service} className="flex items-start gap-2.5 cursor-pointer text-slate-700 hover:text-slate-900 transition-colors">
+                        <label key={service} className="flex items-start gap-2.5 cursor-pointer group/cb py-0.5 px-1 rounded hover:bg-slate-100/50 transition-colors">
+                          <div className={`w-4 h-4 mt-0.5 rounded border flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+                            selectedServices.includes(service)
+                              ? 'bg-slate-900 border-slate-900 text-white'
+                              : 'bg-white border-slate-355 group-hover/cb:border-slate-500'
+                          }`}>
+                            {selectedServices.includes(service) && (
+                              <svg className="w-2.5 h-2.5 stroke-[3] stroke-current" fill="none" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                            )}
+                          </div>
                           <input
                             type="checkbox"
                             value={service}
                             checked={selectedServices.includes(service)}
                             onChange={() => handleServiceChange(service)}
-                            className="mt-0.5 w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/10 focus:ring-opacity-25"
+                            className="sr-only"
                           />
-                          <span className="text-xs font-medium leading-tight">{service}</span>
+                          <span className="text-[11px] text-slate-700 font-medium group-hover/cb:text-slate-900 transition-colors select-none leading-tight">{service}</span>
                         </label>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Australia Services</div>
-                    <div className="grid grid-cols-1 gap-2.5">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">Australia Services</div>
+                    <div className="grid grid-cols-1 gap-3">
                       {[
                         'Accounting & Taxation Services',
                         'Paraplanning & Broker Support Services'
                       ].map((service) => (
-                        <label key={service} className="flex items-start gap-2.5 cursor-pointer text-slate-700 hover:text-slate-900 transition-colors">
+                        <label key={service} className="flex items-start gap-2.5 cursor-pointer group/cb py-0.5 px-1 rounded hover:bg-slate-100/50 transition-colors">
+                          <div className={`w-4 h-4 mt-0.5 rounded border flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+                            selectedServices.includes(service)
+                              ? 'bg-slate-900 border-slate-900 text-white'
+                              : 'bg-white border-slate-355 group-hover/cb:border-slate-500'
+                          }`}>
+                            {selectedServices.includes(service) && (
+                              <svg className="w-2.5 h-2.5 stroke-[3] stroke-current" fill="none" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                            )}
+                          </div>
                           <input
                             type="checkbox"
                             value={service}
                             checked={selectedServices.includes(service)}
                             onChange={() => handleServiceChange(service)}
-                            className="mt-0.5 w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/10 focus:ring-opacity-25"
+                            className="sr-only"
                           />
-                          <span className="text-xs font-medium leading-tight">{service}</span>
+                          <span className="text-[11px] text-slate-700 font-medium group-hover/cb:text-slate-900 transition-colors select-none leading-tight">{service}</span>
                         </label>
                       ))}
                     </div>
@@ -256,8 +284,8 @@ export default function ExpertModal({ isOpen, onClose }) {
                 </div>
               </div>
 
-              {/* Message */}
-              <div className="space-y-1.5">
+              {/* Message (spanning both columns) */}
+              <div className="space-y-1.5 md:col-span-2">
                 <label
                   htmlFor="message"
                   className="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
@@ -268,22 +296,24 @@ export default function ExpertModal({ isOpen, onClose }) {
                   id="message"
                   name="message"
                   required
-                  rows="4"
+                  rows="2"
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Briefly describe your required roles, technologies (React, Node, etc.), and scaling urgency..."
-                  className="w-full bg-slate-55 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200 resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200 resize-none"
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full py-3.5 bg-slate-900 hover:bg-slate-800 rounded-xl text-sm font-semibold tracking-wide uppercase text-white transition-all duration-200 shadow-sm flex items-center justify-center gap-2"
-              >
-                <span>Submit Request</span>
-                <Send className="w-4 h-4" />
-              </button>
+              {/* Submit Button (spanning both columns) */}
+              <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  className="w-full py-3.5 bg-slate-900 hover:bg-slate-800 rounded-xl text-sm font-semibold tracking-wide uppercase text-white transition-all duration-200 shadow-sm flex items-center justify-center gap-2"
+                >
+                  <span>Submit Request</span>
+                  <Send className="w-4 h-4" />
+                </button>
+              </div>
             </form>
           </div>
         )}
