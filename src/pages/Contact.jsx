@@ -9,6 +9,7 @@ export default function Contact({ onOpenModal }) {
     companyName: '',
     message: '',
   });
+  const [selectedServices, setSelectedServices] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +19,14 @@ export default function Contact({ onOpenModal }) {
     }));
   };
 
+  const handleServiceChange = (serviceName) => {
+    setSelectedServices((prev) =>
+      prev.includes(serviceName)
+        ? prev.filter((s) => s !== serviceName)
+        : [...prev, serviceName]
+    );
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     
@@ -25,6 +34,7 @@ export default function Contact({ onOpenModal }) {
     const submissionData = {
       ...formData,
       companyName: formData.companyName || 'Not Specified',
+      selectedServices: selectedServices,
       submittedAt: new Date().toISOString()
     };
 
@@ -130,6 +140,7 @@ export default function Contact({ onOpenModal }) {
                   onClick={() => {
                     setIsSubmitted(false);
                     setFormData({ fullName: '', emailAddress: '', companyName: '', message: '' });
+                    setSelectedServices([]);
                   }}
                   className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:text-slate-900 rounded-full transition-all duration-200"
                 >
@@ -209,6 +220,62 @@ export default function Contact({ onOpenModal }) {
                       placeholder="Acme Corporation"
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all duration-200"
                     />
+                  </div>
+
+                  {/* Services Checkboxes */}
+                  <div className="space-y-1.5">
+                    <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                      Services of Interest (Optional)
+                    </label>
+                    <div className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 max-h-[160px] overflow-y-auto space-y-4">
+                      <div>
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">USA Services</div>
+                        <div className="grid grid-cols-1 gap-2.5">
+                          {[
+                            'Accounting and Bookkeeping Services',
+                            'White Label Accounting Services',
+                            'AR & AP Management Services',
+                            'Payroll Management',
+                            'Xero & QuickBooks Accounting services',
+                            'Year End Services',
+                            'Preparation of Financial Statement',
+                            'Filing 1099 and issue forms',
+                            'Sales Tax Services'
+                          ].map((service) => (
+                            <label key={service} className="flex items-start gap-2.5 cursor-pointer text-slate-700 hover:text-slate-900 transition-colors">
+                              <input
+                                type="checkbox"
+                                value={service}
+                                checked={selectedServices.includes(service)}
+                                onChange={() => handleServiceChange(service)}
+                                className="mt-0.5 w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/10 focus:ring-opacity-25"
+                              />
+                              <span className="text-xs font-medium leading-tight">{service}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Australia Services</div>
+                        <div className="grid grid-cols-1 gap-2.5">
+                          {[
+                            'Accounting & Taxation Services',
+                            'Paraplanning & Broker Support Services'
+                          ].map((service) => (
+                            <label key={service} className="flex items-start gap-2.5 cursor-pointer text-slate-700 hover:text-slate-900 transition-colors">
+                              <input
+                                type="checkbox"
+                                value={service}
+                                checked={selectedServices.includes(service)}
+                                onChange={() => handleServiceChange(service)}
+                                className="mt-0.5 w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/10 focus:ring-opacity-25"
+                              />
+                              <span className="text-xs font-medium leading-tight">{service}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Message */}
