@@ -126,7 +126,7 @@ button.rounded-full.bg-white {
   position: relative !important;
   overflow: hidden !important;
   z-index: 1 !important;
-  transition: color 1.2s ease, border-color 1.2s ease, box-shadow 1.2s ease !important;
+  transition: color 1.5s ease, border-color 1.5s ease, box-shadow 1.5s ease !important;
 }
 
 a.rounded-full.bg-white::after,
@@ -141,7 +141,7 @@ button.rounded-full.bg-white::after {
   background-color: #0f172a !important; /* Slate-900 */
   transform: translate(-50%, 100%) scale(0) !important;
   transform-origin: center bottom !important;
-  transition: transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   z-index: -1 !important;
 }
 
@@ -165,17 +165,15 @@ button.rounded-full.bg-white:hover::after {
 
 /* 2. Slate-900 Background Buttons -> Spreads White */
 a.rounded-full.bg-slate-900,
-button.rounded-full.bg-slate-900,
-button.bg-slate-900 {
+button.rounded-full.bg-slate-900 {
   position: relative !important;
   overflow: hidden !important;
   z-index: 1 !important;
-  transition: color 1.2s ease, border-color 1.2s ease, box-shadow 1.2s ease !important;
+  transition: color 1.5s ease, border-color 1.5s ease, box-shadow 1.5s ease !important;
 }
 
 a.rounded-full.bg-slate-900::after,
-button.rounded-full.bg-slate-900::after,
-button.bg-slate-900::after {
+button.rounded-full.bg-slate-900::after {
   content: '' !important;
   position: absolute !important;
   left: 50% !important;
@@ -186,27 +184,24 @@ button.bg-slate-900::after {
   background-color: #ffffff !important;
   transform: translate(-50%, 100%) scale(0) !important;
   transform-origin: center bottom !important;
-  transition: transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   z-index: -1 !important;
 }
 
 a.rounded-full.bg-slate-900:hover,
-button.rounded-full.bg-slate-900:hover,
-button.bg-slate-900:hover {
+button.rounded-full.bg-slate-900:hover {
   color: #0f172a !important;
   border-color: #ffffff !important;
 }
 
 a.rounded-full.bg-slate-900:hover *,
-button.rounded-full.bg-slate-900:hover *,
-button.bg-slate-900:hover * {
+button.rounded-full.bg-slate-900:hover * {
   color: #0f172a !important;
   stroke: #0f172a !important;
 }
 
 a.rounded-full.bg-slate-900:hover::after,
-button.rounded-full.bg-slate-900:hover::after,
-button.bg-slate-900:hover::after {
+button.rounded-full.bg-slate-900:hover::after {
   transform: translate(-50%, 35%) scale(2) !important;
 }
 
@@ -216,7 +211,7 @@ a.rounded-full.bg-transparent.border-white\/30 {
   position: relative !important;
   overflow: hidden !important;
   z-index: 1 !important;
-  transition: color 1.2s ease, border-color 1.2s ease, box-shadow 1.2s ease !important;
+  transition: color 1.5s ease, border-color 1.5s ease, box-shadow 1.5s ease !important;
 }
 
 a.rounded-full.bg-transparent.border-white\/30::after {
@@ -230,7 +225,7 @@ a.rounded-full.bg-transparent.border-white\/30::after {
   background-color: #ffffff !important;
   transform: translate(-50%, 100%) scale(0) !important;
   transform-origin: center bottom !important;
-  transition: transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   z-index: -1 !important;
 }
 

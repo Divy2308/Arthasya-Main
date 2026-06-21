@@ -124,15 +124,15 @@ export default function Home({ onOpenModal }) {
           <div className="flex flex-col sm:flex-row items-center gap-6 w-full justify-center">
             <Link
               to="/#contact"
-              className="w-full sm:w-auto px-10 py-4.5 rounded-full text-base font-semibold tracking-wide text-center text-slate-900 bg-white hover:bg-slate-100 transition-all duration-200 border border-white shadow-md"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full text-sm md:text-base font-bold tracking-wide text-center text-slate-900 bg-white border border-white shadow-lg"
             >
               Partner With Us
             </Link>
             <Link
               to="/#about"
-              className="w-full sm:w-auto px-10 py-4.5 rounded-full text-base font-semibold tracking-wide text-center text-white bg-transparent hover:bg-white/10 border border-white/30 transition-all duration-200"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full text-sm md:text-base font-bold tracking-wide text-center text-slate-900 bg-white border border-white shadow-lg"
             >
-              Explore Our Model
+              Explore Our Models
             </Link>
           </div>
 
