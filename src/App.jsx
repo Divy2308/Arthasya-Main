@@ -16,6 +16,7 @@ import SalesTax from './pages/services/usa/SalesTax';
 
 import AccountingTaxation from './pages/services/australia/AccountingTaxation';
 import ParaplanningBrokerSupport from './pages/services/australia/ParaplanningBrokerSupport';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen flex flex-col justify-between overflow-x-hidden bg-[#FAF9F6]">
+      <CustomCursor />
       
       {/* Clean flat background structure */}
 

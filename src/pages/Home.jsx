@@ -4,9 +4,9 @@ import { Sparkles, ArrowRight, Calculator, ArrowLeftRight, BookOpen, Users, Coin
 import arthasyaBgImage from '../assets/arthasya bg image.jpg';
 import About from './About';
 import Contact from './Contact';
+import SoftwareTicker from '../components/SoftwareTicker';
 
 export default function Home({ onOpenModal }) {
-  const [activeTab, setActiveTab] = useState('usa');
 
   const usaServices = [
     {
@@ -80,7 +80,6 @@ export default function Home({ onOpenModal }) {
     }
   ];
 
-  const currentServices = activeTab === 'usa' ? usaServices : australiaServices;
 
   return (
     <div className="relative z-10 w-full flex flex-col items-center">
@@ -104,15 +103,20 @@ export default function Home({ onOpenModal }) {
         {/* Content Container (Layered on top of background) */}
         <div className="relative z-10 max-w-6xl text-center flex flex-col items-center pt-40 pb-16 w-full">
          
-
           {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold font-display leading-[1.12] tracking-tight text-white mb-8 max-w-5xl">
+          <h1 
+            className="text-5xl md:text-7xl font-bold font-display leading-[1.12] tracking-tight text-white mb-8 max-w-5xl"
+            style={{ textShadow: 'rgb(0 0 0) 4px 9px 10px, rgba(0, 0, 0, 1) 4px 2px 5px' }}
+          >
             Strategic Capacity Partners<br />
             For Outsourcing
           </h1>
 
           {/* Subheading */}
-          <p className="max-w-3xl text-slate-200 text-lg md:text-xl font-normal leading-relaxed mb-12">
+          <p 
+            className="max-w-3xl text-slate-200 text-lg md:text-xl font-normal leading-relaxed mb-12"
+            style={{ textShadow: 'rgb(0 0 0) 4px 9px 10px, rgba(0, 0, 0, 1) 4px 2px 5px' }}
+          >
             Offshore Staffing 2.0: Global Accounting & Enterprise Engineering Solutions. Arthasya engineers elite remote software development, customer support, and financial operations squads.
           </p>
 
@@ -202,61 +206,104 @@ export default function Home({ onOpenModal }) {
           </p>
         </div>
 
-        {/* Tab Switcher */}
+        {/* Tab/Anchor Buttons */}
         <div className="flex justify-center mb-16">
           <div className="bg-slate-100/80 backdrop-blur-sm border border-slate-200/50 p-1.5 rounded-full flex gap-1 shadow-inner">
-            <button
-              onClick={() => setActiveTab('usa')}
-              className={`px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 ${
-                activeTab === 'usa'
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/40'
-              }`}
+            <a
+              href="#services-usa"
+              className="px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 bg-slate-900 text-white shadow-md hover:opacity-90"
             >
               USA Services
-            </button>
-            <button
-              onClick={() => setActiveTab('australia')}
-              className={`px-8 py-3 rounded-full text-base font-semibold transition-all duration-300 ${
-                activeTab === 'australia'
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/40'
-              }`}
+            </a>
+            <a
+              href="#services-australia"
+              className="px-8 py-3 text-slate-600 hover:text-slate-950 hover:bg-slate-200/40 rounded-full text-base font-semibold transition-all duration-300"
             >
               Australia Services
-            </button>
+            </a>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full transition-all duration-500">
-          {currentServices.map((service) => {
-            const IconComponent = service.icon;
-            return (
-              <Link
-                key={service.link}
-                to={service.link}
-                className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
-              >
-                <div className="space-y-6">
-                  <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700">
-                    <IconComponent className="w-6 h-6 text-slate-900" />
+        {/* USA Services Section */}
+        <div id="services-usa" className="scroll-mt-28 mb-20">
+          <div className="mb-8 text-left">
+            <h3 className="text-2xl md:text-3xl font-bold font-display text-slate-800 border-b pb-3 border-slate-200/50">
+              USA Services
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            {usaServices.map((service) => {
+              const IconComponent = service.icon;
+              return (
+                <Link
+                  key={service.link}
+                  to={service.link}
+                  className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
+                >
+                  <div className="space-y-6">
+                    <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700 transition-all duration-300 group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900">
+                      <IconComponent className="w-6 h-6 transition-colors duration-300" />
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
+                      {service.desc}
+                    </p>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left leading-snug">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
-                    {service.desc}
-                  </p>
-                </div>
-                <div className="flex justify-end pt-8 relative z-10">
-                  <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-slate-900 group-hover:bg-slate-100 flex items-center justify-center transition-all duration-200">
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+                  <div className="flex justify-end pt-8 relative z-10">
+                    <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-white group-hover:bg-slate-900 group-hover:border-slate-900 flex items-center justify-center transition-all duration-300">
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:-rotate-45" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Australia Services Section */}
+        <div id="services-australia" className="scroll-mt-28">
+          <div className="mb-8 text-left">
+            <h3 className="text-2xl md:text-3xl font-bold font-display text-slate-800 border-b pb-3 border-slate-200/50">
+              Australia Services
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            {australiaServices.map((service) => {
+              const IconComponent = service.icon;
+              return (
+                <Link
+                  key={service.link}
+                  to={service.link}
+                  className="bg-white border border-slate-200/60 rounded-3xl p-8 md:p-10 relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1"
+                >
+                  <div className="space-y-6">
+                    <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700 transition-all duration-300 group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900">
+                      <IconComponent className="w-6 h-6 transition-colors duration-300" />
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold font-display text-slate-800 text-left leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal text-left">
+                      {service.desc}
+                    </p>
+                  </div>
+                  <div className="flex justify-end pt-8 relative z-10">
+                    <span className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200/60 text-slate-600 group-hover:text-white group-hover:bg-slate-900 group-hover:border-slate-900 flex items-center justify-center transition-all duration-300">
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:-rotate-45" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Software Ticker Section */}
+      <section className="w-full bg-[#FAF9F6] border-t border-slate-200/50">
+        <SoftwareTicker />
       </section>
 
       {/* About Section */}

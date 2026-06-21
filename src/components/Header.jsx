@@ -222,10 +222,14 @@ export default function Header({ onOpenModal }) {
                     
                     {/* USA Services Submenu Trigger */}
                     <div className="relative group/usa">
-                      <div className="flex items-center justify-between px-4 py-3 text-base text-black hover:opacity-70 font-semibold transition-opacity cursor-pointer">
+                      <Link 
+                        to="/#services-usa"
+                        className="flex items-center justify-between px-4 py-3 text-base text-black hover:opacity-70 font-semibold transition-opacity cursor-pointer"
+                        onClick={() => setIsServicesHovered(false)}
+                      >
                         <span>USA Services</span>
                         <ChevronRight size={16} />
-                      </div>
+                      </Link>
                       
                       {/* USA Nested Dropdown Wrapper */}
                       <div 
@@ -304,10 +308,14 @@ export default function Header({ onOpenModal }) {
 
                     {/* Australia Services Submenu Trigger */}
                     <div className="relative group/aus">
-                      <div className="flex items-center justify-between px-4 py-3 text-base text-black hover:opacity-70 font-semibold transition-opacity cursor-pointer">
+                      <Link 
+                        to="/#services-australia"
+                        className="flex items-center justify-between px-4 py-3 text-base text-black hover:opacity-70 font-semibold transition-opacity cursor-pointer"
+                        onClick={() => setIsServicesHovered(false)}
+                      >
                         <span>Australia Services</span>
                         <ChevronRight size={16} />
-                      </div>
+                      </Link>
                       
                       {/* Australia Nested Dropdown Wrapper */}
                       <div 
@@ -468,7 +476,13 @@ export default function Header({ onOpenModal }) {
                 {/* Mobile USA Services */}
                 <div className="flex flex-col">
                   <div className="flex items-center justify-between py-1">
-                    <span className="text-base font-semibold text-slate-800">USA Services</span>
+                    <Link
+                      to="/#services-usa"
+                      className="text-base font-semibold text-slate-800"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      USA Services
+                    </Link>
                     <button
                       className="p-1 hover:bg-slate-100 rounded-lg animate-pulse"
                       onClick={() => setIsMobileUsaOpen(!isMobileUsaOpen)}
@@ -555,7 +569,13 @@ export default function Header({ onOpenModal }) {
                 {/* Mobile Australia Services */}
                 <div className="flex flex-col">
                   <div className="flex items-center justify-between py-1">
-                    <span className="text-base font-semibold text-slate-800">Australia Services</span>
+                    <Link
+                      to="/#services-australia"
+                      className="text-base font-semibold text-slate-800"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Australia Services
+                    </Link>
                     <button
                       className="p-1 hover:bg-slate-100 rounded-lg animate-pulse"
                       onClick={() => setIsMobileAusOpen(!isMobileAusOpen)}

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IndustriesGrid from '../../../components/IndustriesGrid';
+import WhatYouCanDoNext from '../../../components/WhatYouCanDoNext';
 
 export default function SalesTax() {
   return (
@@ -45,6 +47,12 @@ export default function SalesTax() {
           </div>
         </div>
       </section>
+
+      {/* Industries Matrix section */}
+      <IndustriesGrid />
+
+      {/* CTA Section */}
+      <WhatYouCanDoNext />
     </div>
   );
 }
