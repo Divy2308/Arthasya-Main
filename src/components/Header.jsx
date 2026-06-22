@@ -30,7 +30,7 @@ export default function Header({ onOpenModal }) {
 
   const handleServicesMouseLeave = () => {
     setIsServicesHovered(false);
-    if (window.scrollY > 20) {
+    if (window.scrollY > 20 && window.innerWidth >= 768) {
       setIsCompact(true);
     }
   };
@@ -40,9 +40,25 @@ export default function Header({ onOpenModal }) {
     setIsMenuOpen(false);
   }, [location.pathname, location.hash]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   // Navbar behavior
   useEffect(() => {
     const handleScroll = () => {
+      if (window.innerWidth < 768) {
+        setIsCompact(false);
+        return;
+      }
       if (window.scrollY <= 20) {
         setIsCompact(false);
       } else {
@@ -51,34 +67,34 @@ export default function Header({ onOpenModal }) {
     };
 
     const handleMouseMove = (e) => {
+      if (window.innerWidth < 768) return;
       if (window.scrollY <= 20) return;
 
       if (e.clientY <= 120) {
         setIsCompact(false);
       } else {
         setTimeout(() => {
-          if (window.scrollY > 20 && !isServicesHoveredRef.current) {
+          if (window.scrollY > 20 && !isServicesHoveredRef.current && window.innerWidth >= 768) {
             setIsCompact(true);
           }
         }, 250);
       }
     };
 
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsCompact(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    document.addEventListener(
-      'mousemove',
-      handleMouseMove
-    );
+    document.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener(
-        'scroll',
-        handleScroll
-      );
-      document.removeEventListener(
-        'mousemove',
-        handleMouseMove
-      );
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -120,16 +136,16 @@ export default function Header({ onOpenModal }) {
           left-1/2
           -translate-x-1/2
           custom-navbar-glass
-          rounded-full
           shadow-sm
-          py-4
           transition-all
           duration-500
           ease-[cubic-bezier(0.22,1,0.36,1)]
           ${
             isCompact
-  ? 'w-[190px] px-0'
-  : 'w-[96%] max-w-7xl px-8'
+              ? 'w-[190px] px-0 py-4 rounded-full overflow-hidden md:overflow-visible'
+              : isMenuOpen
+                ? 'w-[96%] max-w-7xl px-6 py-6 rounded-[2rem] max-h-[calc(100vh-3rem)] overflow-y-auto md:max-h-none md:overflow-visible'
+                : 'w-[96%] max-w-7xl px-6 md:px-8 py-4 rounded-full overflow-hidden md:overflow-visible'
           }
         `}
       >
@@ -437,128 +453,135 @@ export default function Header({ onOpenModal }) {
         >
           <hr className="border-slate-200 mb-4" />
 
-          <div className="flex flex-col gap-4 text-lg">
+          <div className="flex flex-col gap-2.5 text-lg">
             <Link
               to="/#home"
-              className="flex items-center gap-3"
+              className="flex items-center gap-3 py-2 px-3 rounded-xl hover:bg-black/5 active:bg-black/10 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
             >
-              <Home size={20} />
-              Home
+              <Home size={20} className="text-slate-600" />
+              <span className="font-medium text-slate-800">Home</span>
             </Link>
 
             <div className="flex flex-col">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between py-2 px-3 rounded-xl hover:bg-black/5 active:bg-black/10 transition-colors">
                 <Link
                   to="/#services"
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 flex-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Layers size={20} />
-                  Services
+                  <Layers size={20} className="text-slate-600" />
+                  <span className="font-medium text-slate-800">Services</span>
                 </Link>
                 <button
-                  className="p-1 hover:bg-slate-100 rounded-lg"
-                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                  className="p-1.5 hover:bg-black/10 rounded-lg transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsMobileServicesOpen(!isMobileServicesOpen);
+                  }}
                 >
                   <ChevronDown
                     size={20}
-                    className={`transition-transform duration-300 ${
+                    className={`transition-transform duration-300 text-slate-600 ${
                       isMobileServicesOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
               </div>
               <div
-                className={`flex flex-col ml-8 overflow-hidden transition-all duration-300 ${
-                  isMobileServicesOpen ? 'max-h-[1000px] opacity-100 mt-3 gap-3' : 'max-h-0 opacity-0 gap-0'
+                className={`flex flex-col ml-6 overflow-hidden transition-all duration-300 ${
+                  isMobileServicesOpen ? 'max-h-[1200px] opacity-100 mt-2 gap-2' : 'max-h-0 opacity-0 gap-0'
                 }`}
               >
                 {/* Mobile USA Services */}
                 <div className="flex flex-col">
-                  <div className="flex items-center justify-between py-1">
+                  <div className="flex items-center justify-between py-1.5 px-3 rounded-lg hover:bg-black/5 active:bg-black/10 transition-colors">
                     <Link
                       to="/#services-usa"
-                      className="text-base font-semibold text-slate-800"
+                      className="text-base font-semibold text-slate-700 flex-1"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       USA Services
                     </Link>
                     <button
-                      className="p-1 hover:bg-slate-100 rounded-lg animate-pulse"
-                      onClick={() => setIsMobileUsaOpen(!isMobileUsaOpen)}
+                      className="p-1 hover:bg-black/10 rounded-md transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsMobileUsaOpen(!isMobileUsaOpen);
+                      }}
                     >
                       <ChevronDown
                         size={16}
-                        className={`transition-transform duration-300 ${
+                        className={`transition-transform duration-300 text-slate-600 ${
                           isMobileUsaOpen ? 'rotate-180' : ''
                         }`}
                       />
                     </button>
                   </div>
                   <div
-                    className={`flex flex-col ml-4 overflow-hidden transition-all duration-300 ${
-                      isMobileUsaOpen ? 'max-h-[500px] opacity-100 mt-2 gap-2 pb-2' : 'max-h-0 opacity-0 gap-0'
+                    className={`flex flex-col ml-4 border-l border-slate-200/60 pl-2 overflow-hidden transition-all duration-300 ${
+                      isMobileUsaOpen ? 'max-h-[600px] opacity-100 mt-1 gap-1.5 pb-2' : 'max-h-0 opacity-0 gap-0'
                     }`}
                   >
                     <Link
                       to="/services/usa/accounting-bookkeeping"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Accounting & Bookkeeping
                     </Link>
                     <Link
                       to="/services/usa/white-label-accounting"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       White Label Accounting
                     </Link>
                     <Link
                       to="/services/usa/ar-ap-management"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       AR & AP Management
                     </Link>
                     <Link
                       to="/services/usa/payroll-management"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Payroll Management
                     </Link>
                     <Link
                       to="/services/usa/xero-quickbooks"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Xero & QuickBooks Services
                     </Link>
                     <Link
                       to="/services/usa/year-end-services"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Year End Services
                     </Link>
                     <Link
                       to="/services/usa/financial-statement-preparation"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Preparation of Financial Statement
                     </Link>
                     <Link
                       to="/services/usa/filing-1099"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Filing 1099 and Issue Forms
                     </Link>
                     <Link
                       to="/services/usa/sales-tax"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Sales Tax Services
@@ -568,41 +591,44 @@ export default function Header({ onOpenModal }) {
 
                 {/* Mobile Australia Services */}
                 <div className="flex flex-col">
-                  <div className="flex items-center justify-between py-1">
+                  <div className="flex items-center justify-between py-1.5 px-3 rounded-lg hover:bg-black/5 active:bg-black/10 transition-colors">
                     <Link
                       to="/#services-australia"
-                      className="text-base font-semibold text-slate-800"
+                      className="text-base font-semibold text-slate-700 flex-1"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Australia Services
                     </Link>
                     <button
-                      className="p-1 hover:bg-slate-100 rounded-lg animate-pulse"
-                      onClick={() => setIsMobileAusOpen(!isMobileAusOpen)}
+                      className="p-1 hover:bg-black/10 rounded-md transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsMobileAusOpen(!isMobileAusOpen);
+                      }}
                     >
                       <ChevronDown
                         size={16}
-                        className={`transition-transform duration-300 ${
+                        className={`transition-transform duration-300 text-slate-600 ${
                           isMobileAusOpen ? 'rotate-180' : ''
                         }`}
                       />
                     </button>
                   </div>
                   <div
-                    className={`flex flex-col ml-4 overflow-hidden transition-all duration-300 ${
-                      isMobileAusOpen ? 'max-h-[200px] opacity-100 mt-2 gap-2 pb-2' : 'max-h-0 opacity-0 gap-0'
+                    className={`flex flex-col ml-4 border-l border-slate-200/60 pl-2 overflow-hidden transition-all duration-300 ${
+                      isMobileAusOpen ? 'max-h-[300px] opacity-100 mt-1 gap-1.5 pb-2' : 'max-h-0 opacity-0 gap-0'
                     }`}
                   >
                     <Link
                       to="/services/australia/accounting-taxation"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Accounting & Taxation
                     </Link>
                     <Link
                       to="/services/australia/paraplanning-broker-support"
-                      className="text-sm text-slate-600 hover:text-black"
+                      className="text-sm text-slate-600 hover:text-black py-1 px-3 rounded-md hover:bg-black/5 active:bg-black/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Paraplanning & Broker Support
@@ -614,34 +640,37 @@ export default function Header({ onOpenModal }) {
 
             <Link
               to="/#about"
-              className="flex items-center gap-3"
+              className="flex items-center gap-3 py-2 px-3 rounded-xl hover:bg-black/5 active:bg-black/10 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              <User size={20} />
-              About Us
+              <User size={20} className="text-slate-600" />
+              <span className="font-medium text-slate-800">About Us</span>
             </Link>
 
             <Link
               to="/#careers"
-              className="flex items-center gap-3"
+              className="flex items-center gap-3 py-2 px-3 rounded-xl hover:bg-black/5 active:bg-black/10 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Briefcase size={20} />
-              Careers
+              <Briefcase size={20} className="text-slate-600" />
+              <span className="font-medium text-slate-800">Careers</span>
             </Link>
 
             <Link
               to="/#contact"
-              className="flex items-center gap-3"
+              className="flex items-center gap-3 py-2 px-3 rounded-xl hover:bg-black/5 active:bg-black/10 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Mail size={20} />
-              Contact Us
+              <Mail size={20} className="text-slate-600" />
+              <span className="font-medium text-slate-800">Contact Us</span>
             </Link>
 
             <button
-              onClick={onOpenModal}
-              className="mt-2 py-3 rounded-xl bg-slate-900 text-white font-semibold"
+              onClick={() => {
+                setIsMenuOpen(false);
+                onOpenModal();
+              }}
+              className="mt-2 py-3 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 active:scale-[0.98] transition-all"
             >
               Talk to Expert
             </button>
